@@ -844,7 +844,7 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
    //       PNET_MOD_DAP_IDENT,
    //       PNET_SUBMOD_DAP_INTERFACE_1_PORT_4_IDENT,
    //       &cfg_dap_data);
-   }
+   // }
 }
 
 /**
