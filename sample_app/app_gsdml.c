@@ -111,7 +111,6 @@ static const app_gsdml_submodule_t submod_digital_inout_safe = {
    .data_dir = PNET_DIR_INPUT,
    .insize = APP_GSDML_INPUT_DATA_SIZE_S,
    .outsize = APP_GSDML_OUTPUT_DATA_SIZE_S,
-   .outsize = 0,
    .parameters = {0}};
 
 // static const app_gsdml_submodule_t submod_digital_out = {
