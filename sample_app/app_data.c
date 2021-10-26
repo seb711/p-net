@@ -79,11 +79,26 @@ uint8_t * app_data_get_input_data (
       *iops = PNET_IOXS_BAD;
       return NULL;
    }
+   else if (submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT)
+   {
+      *size = APP_GSDML_INPUT_DATA_SIZE_S;
+      *iops = PNET_IOXS_GOOD;
+      printf ("Input s-data received!");
+
+      return inputdata_s;
+   }
+   else if (submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
+   {
+      *size = APP_GSDML_INPUT_DATA_SIZE_N;
+      *iops = PNET_IOXS_GOOD;
+      printf ("Input n-data received!");
+
+      return inputdata_n;
+   }
 
    /* Prepare input data
     * Lowest 7 bits: Counter    Most significant bit: Button
     */
-   printf("Input data received!"); 
    // inputdata[0] = counter;
    // if (button_pressed)
    // {
@@ -93,11 +108,7 @@ uint8_t * app_data_get_input_data (
    // {
    //    inputdata[0] &= 0x7F;
    // }
-
-   *size = APP_GSDML_INPUT_DATA_SIZE_N;
-   *iops = PNET_IOXS_GOOD;
-
-   return inputdata;
+   return NULL;
 }
 
 int app_data_set_output_data (
@@ -105,22 +116,22 @@ int app_data_set_output_data (
    uint8_t * data,
    uint16_t size)
 {
-   bool led_state;
 
    if (data != NULL && size == APP_GSDML_OUTPUT_DATA_SIZE)
    {
-      if (
-         submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT)
+      if (submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT)
       {
-         memcpy (outputdata, data, size);
+         memcpy (outputdata_s, data, size);
          // led_state = (outputdata_s[0] & 0x80) > 0;
-         print("safe processed");
+         printf ("safe processed");
          app_handle_data_led_state (false);
          return 0;
-      } else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT) {
-         memcpy (outputdata, data, size);
+      }
+      else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT)
+      {
+         memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         print("unsafe processed");
+         printf ("unsafe processed");
          app_handle_data_led_state (false);
          return 0;
       }
@@ -130,7 +141,9 @@ int app_data_set_output_data (
 
 int app_data_set_default_outputs (void)
 {
-   outputdata[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
+   outputdata_s[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
+   outputdata_n[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
+
    app_handle_data_led_state (false);
    return 0;
 }
