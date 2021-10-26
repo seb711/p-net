@@ -1474,7 +1474,7 @@ void app_loop_forever (void * arg)
 
    app->main_api.arep = UINT32_MAX;
 
-   app_set_led (APP_DATA_LED_ID, false);
+   // app_set_led (APP_DATA_LED_ID, false);
    app_plug_dap (app, app->pnet_cfg->num_physical_ports);
    APP_LOG_INFO ("Waiting for PLC connect request\n\n");
 
