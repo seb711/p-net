@@ -129,7 +129,7 @@ static const app_gsdml_submodule_t submod_digital_inout = {
    .data_dir = PNET_DIR_IO,
    .insize = APP_GSDML_INPUT_DATA_SIZE_N,
    .outsize = APP_GSDML_OUTPUT_DATA_SIZE_N,
-   .parameters = {APP_GSDM_PARAMETER_1_IDX, APP_GSDM_PARAMETER_2_IDX, 0}};
+   .parameters = {0}};
 
 /* List of supported modules */
 static const app_gsdml_module_t * app_gsdml_modules[] =
