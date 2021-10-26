@@ -59,7 +59,7 @@ extern "C" {
 /* GSDML tag: OrderNumber */
 #define APP_GSDML_ORDER_ID "0x300"
 /* GSDML tag: ModuleInfo / Name */
-#define APP_GSDML_PRODUCT_NAME "KRC4 Sample Application"
+#define APP_GSDML_PRODUCT_NAME "KRC4_ProfiNet_4_1"
 
 /* GSDML tag: MinDeviceInterval */
 #define APP_GSDML_MIN_DEVICE_INTERVAL 32 /* 1ms */
