@@ -117,9 +117,11 @@ int app_data_set_output_data (
    uint16_t size)
 {
 
-   if (data != NULL && size == APP_GSDML_OUTPUT_DATA_SIZE)
+   if (data != NULL)
    {
-      if (submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT)
+      if (
+         submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT &&
+         size == APP_GSDML_OUTPUT_DATA_SIZE_S)
       {
          memcpy (outputdata_s, data, size);
          // led_state = (outputdata_s[0] & 0x80) > 0;
@@ -127,7 +129,9 @@ int app_data_set_output_data (
          app_handle_data_led_state (false);
          return 0;
       }
-      else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT)
+      else if (
+         submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT &&
+         size == APP_GSDML_OUTPUT_DATA_SIZE_N)
       {
          memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
