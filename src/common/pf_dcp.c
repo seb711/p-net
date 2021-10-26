@@ -177,6 +177,8 @@ static void pf_dcp_responder (pnet_t * net, void * arg, uint32_t current_time)
 {
    pnal_buf_t * p_buf = (pnal_buf_t *)arg;
 
+   print("identidy");
+
    pf_scheduler_reset_handle (&net->dcp_identresp_timeout);
 
    if (p_buf != NULL)
