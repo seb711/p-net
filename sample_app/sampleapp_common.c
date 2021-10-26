@@ -820,30 +820,30 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
          &cfg_dap_data);
    }
 
-   if (number_of_ports >= 3)
-   {
-      app_exp_submodule_ind (
-         app->net,
-         app,
-         APP_GSDML_API,
-         PNET_SLOT_DAP_IDENT,
-         PNET_SUBSLOT_DAP_INTERFACE_1_PORT_3_IDENT,
-         PNET_MOD_DAP_IDENT,
-         PNET_SUBMOD_DAP_INTERFACE_1_PORT_3_IDENT,
-         &cfg_dap_data);
-   }
+   // if (number_of_ports >= 3)
+   // {
+   //    app_exp_submodule_ind (
+   //       app->net,
+   //       app,
+   //       APP_GSDML_API,
+   //       PNET_SLOT_DAP_IDENT,
+   //       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_3_IDENT,
+   //       PNET_MOD_DAP_IDENT,
+   //       PNET_SUBMOD_DAP_INTERFACE_1_PORT_3_IDENT,
+   //       &cfg_dap_data);
+   // }
 
-   if (number_of_ports >= 4)
-   {
-      app_exp_submodule_ind (
-         app->net,
-         app,
-         APP_GSDML_API,
-         PNET_SLOT_DAP_IDENT,
-         PNET_SUBSLOT_DAP_INTERFACE_1_PORT_4_IDENT,
-         PNET_MOD_DAP_IDENT,
-         PNET_SUBMOD_DAP_INTERFACE_1_PORT_4_IDENT,
-         &cfg_dap_data);
+   // if (number_of_ports >= 4)
+   // {
+   //    app_exp_submodule_ind (
+   //       app->net,
+   //       app,
+   //       APP_GSDML_API,
+   //       PNET_SLOT_DAP_IDENT,
+   //       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_4_IDENT,
+   //       PNET_MOD_DAP_IDENT,
+   //       PNET_SUBMOD_DAP_INTERFACE_1_PORT_4_IDENT,
+   //       &cfg_dap_data);
    }
 }
 

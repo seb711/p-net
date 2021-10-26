@@ -76,11 +76,11 @@ set(PNET_MAX_CR                 2
   CACHE STRING "Per AR. At least 2 (1 input and 1 output). If unsure, use 2.")
 set(PNET_MAX_SLOTS            5
   CACHE STRING "Per API. Should be > 1 to allow at least one I/O module")
-set(PNET_MAX_SUBSLOTS         3
+set(PNET_MAX_SUBSLOTS         4
   CACHE STRING "Per slot (DAP requires 2 + PNET_MAX_PHYSICAL_PORTS)")
 set(PNET_MAX_DFP_IOCR           2
   CACHE STRING "Allowed values are 0 (zero) or 2")
-set(PNET_MAX_PHYSICAL_PORTS          1
+set(PNET_MAX_PHYSICAL_PORTS          2
   CACHE STRING "Max number of physical ports")
 set(PNET_MAX_LOG_BOOK_ENTRIES   16
   CACHE STRING "")
