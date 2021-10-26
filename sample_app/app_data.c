@@ -96,7 +96,7 @@ uint8_t * app_data_get_input_data (
    //    return inputdata_n;
    // }
    *iops = PNET_IOXS_GOOD;
-   return {0};
+   return inputdata_s;
 
    /* Prepare input data
     * Lowest 7 bits: Counter    Most significant bit: Button
@@ -110,7 +110,7 @@ uint8_t * app_data_get_input_data (
    // {
    //    inputdata[0] &= 0x7F;
    // }
-   return NULL;
+   // return NULL;
 }
 
 int app_data_set_output_data (
