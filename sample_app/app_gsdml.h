@@ -126,14 +126,14 @@ typedef struct
 #define APP_GSDML_MOD_ID_15_IN_OUT          0x00006000
 #define APP_GSDML_MOD_ID_16_IN_OUT          0x00007F00
 
-#define APP_GSDML_SUBMOD_ID_1_IN_OUT           0x00000090
+#define APP_GSDML_SUBMOD_ID_1_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_2_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_3_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_4_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_5_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_6_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_7_IN_OUT           0x00000001
-#define APP_GSDML_SUBMOD_ID_8_IN_OUT           0x00001001
+#define APP_GSDML_SUBMOD_ID_8_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_9_IN_OUT           0x00000001
 #define APP_GSDML_SUBMOD_ID_10_IN_OUT          0x00000001
 #define APP_GSDML_SUBMOD_ID_11_IN_OUT          0x00000001
@@ -145,11 +145,11 @@ typedef struct
 
 #define APP_GSDML_INPUT_DATA_SIZE_N   256 /* bytes, for digital inputs data */
 #define APP_GSDML_OUTPUT_DATA_SIZE_N  256 /* bytes, for digital outputs data */
-#define APP_GSDM_ALARM_PAYLOAD_SIZE_N 256 /* bytes */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_N 1 /* bytes */
 
 #define APP_GSDML_INPUT_DATA_SIZE_S   64 /* bytes, for digital inputs data */
 #define APP_GSDML_OUTPUT_DATA_SIZE_S  64 /* bytes, for digital outputs data */
-#define APP_GSDM_ALARM_PAYLOAD_SIZE_S 64 /* bytes */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_S 1 /* bytes */
 
 /**
  * Get module configuration from module id
