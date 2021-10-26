@@ -52,13 +52,13 @@ uint8_t outputdata_s[APP_GSDML_OUTPUT_DATA_SIZE_S] = {0};
  */
 static void app_handle_data_led_state (bool led_state)
 {
-   static bool previous_led_state = false;
+   // static bool previous_led_state = false;
 
-   if (led_state != previous_led_state)
-   {
-      app_set_led (APP_DATA_LED_ID, led_state);
-   }
-   previous_led_state = led_state;
+   // if (led_state != previous_led_state)
+   // {
+   //    app_set_led (APP_DATA_LED_ID, led_state);
+   // }
+   // previous_led_state = led_state;
 }
 
 uint8_t * app_data_get_input_data (

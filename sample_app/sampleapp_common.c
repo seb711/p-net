@@ -85,7 +85,7 @@ typedef struct app_data_t
    bool alarm_allowed;
    pnet_alarm_argument_t alarm_arg;
    app_demo_state_t alarm_demo_state;
-   uint8_t alarm_payload[APP_GSDM_ALARM_PAYLOAD_SIZE];
+   uint8_t alarm_payload[APP_GSDM_ALARM_PAYLOAD_SIZE_N];
 
    uint32_t arep_for_appl_ready;
 
@@ -336,11 +336,11 @@ static int app_read_ind (
    subslot = app_utils_subslot_get (&app->main_api, slot_nbr, subslot_nbr);
    if (subslot != NULL)
    {
-      app_data_read_parameter (
-         subslot->submodule_id,
-         idx,
-         pp_read_data,
-         p_read_length);
+      // app_data_read_parameter (
+      //    subslot->submodule_id,
+      //    idx,
+      //    pp_read_data,
+      //    p_read_length);
    }
    else
    {
@@ -1048,8 +1048,6 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
                {
                   indata = app_data_get_input_data (
                      p_subslot->submodule_id,
-                     app->button1_pressed,
-                     app->counter_data,
                      &indata_size,
                      &iops);
                }
@@ -1219,7 +1217,7 @@ static void app_handle_demo_pnet_api (app_data_t * app)
             slot,
             p_subslot->subslot_nbr,
             APP_ALARM_USI,
-            APP_GSDM_ALARM_PAYLOAD_SIZE,
+            APP_GSDM_ALARM_PAYLOAD_SIZE_N,
             app->alarm_payload);
          app->alarm_allowed = false; /* Not allowed until ACK received */
 
@@ -1456,16 +1454,16 @@ void app_pnet_cfg_init_default (pnet_cfg_t * pnet_cfg)
    pnet_cfg->cb_arg = (void *)&app_state;
 }
 
-static void update_button_states (app_data_t * app)
-{
-   app->buttons_tick_counter++;
-   if (app->buttons_tick_counter > APP_TICKS_READ_BUTTONS)
-   {
-      app->button1_pressed = app_get_button (0);
-      app->button2_pressed = app_get_button (1);
-      app->buttons_tick_counter = 0;
-   }
-}
+// static void update_button_states (app_data_t * app)
+// {
+//    app->buttons_tick_counter++;
+//    if (app->buttons_tick_counter > APP_TICKS_READ_BUTTONS)
+//    {
+//       app->button1_pressed = app_get_button (0);
+//       app->button2_pressed = app_get_button (1);
+//       app->buttons_tick_counter = 0;
+//    }
+// }
 
 void app_loop_forever (void * arg)
 {
@@ -1503,7 +1501,7 @@ void app_loop_forever (void * arg)
       {
          os_event_clr (app->main_events, APP_EVENT_TIMER);
 
-         update_button_states (app);
+         // update_button_states (app);
          if (app->main_api.arep != UINT32_MAX)
          {
             app_handle_cyclic_data (app);
