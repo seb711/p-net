@@ -60,8 +60,6 @@ extern "C" {
  */
 uint8_t * app_data_get_input_data (
    uint32_t submodule_id,
-   bool button_state,
-   uint8_t counter,
    uint16_t * size,
    uint8_t * iops);
 
@@ -96,11 +94,11 @@ int app_data_set_default_outputs (void);
  * @param size          In:  Length of parameter data
  * @return 0 on success, -1 on error
  */
-int app_data_write_parameter (
-   uint32_t submodule_id,
-   uint32_t index,
-   const uint8_t * data,
-   uint16_t write_length);
+// int app_data_write_parameter (
+//    uint32_t submodule_id,
+//    uint32_t index,
+//    const uint8_t * data,
+//    uint16_t write_length);
 
 /**
  * Read parameter index.
@@ -110,11 +108,11 @@ int app_data_write_parameter (
  * @param size          In:  Length of parameter data
  * @return 0 on success, -1 on error
  */
-int app_data_read_parameter (
-   uint32_t submodule_id,
-   uint32_t index,
-   uint8_t ** data,
-   uint16_t * length);
+// int app_data_read_parameter (
+//    uint32_t submodule_id,
+//    uint32_t index,
+//    uint8_t ** data,
+//    uint16_t * length);
 
 #ifdef __cplusplus
 }

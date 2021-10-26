@@ -283,11 +283,11 @@ static int app_write_ind (
    subslot = app_utils_subslot_get (&app->main_api, slot_nbr, subslot_nbr);
    if (subslot != NULL)
    {
-      app_data_write_parameter (
-         subslot->submodule_id,
-         idx,
-         p_write_data,
-         write_length);
+      // app_data_write_parameter (
+      //    subslot->submodule_id,
+      //    idx,
+      //    p_write_data,
+      //    write_length);
    }
    else
    {
@@ -447,7 +447,7 @@ static int app_signal_led_ind (pnet_t * net, void * arg, bool led_state)
 {
    APP_LOG_INFO ("Profinet signal LED indication. New state: %u\n", led_state);
 
-   app_set_led (APP_PROFINET_SIGNAL_LED_ID, led_state);
+   // app_set_led (APP_PROFINET_SIGNAL_LED_ID, led_state);
    return 0;
 }
 
@@ -936,8 +936,6 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
        */
       indata = app_data_get_input_data (
          subslot->submodule_id,
-         app->button1_pressed,
-         app->counter_data,
          &indata_size,
          &iops);
 

@@ -39,13 +39,13 @@ extern "C" {
 
 #define APP_GSDML_API 0
 
-#define APP_GSDML_DEFAULT_STATION_NAME "rt-labs-dev"
+#define APP_GSDML_DEFAULT_STATION_NAME "KRC4"
 
 /* GSDML tag: VendorID */
-#define APP_GSDML_VENDOR_ID 0xfeed
+#define APP_GSDML_VENDOR_ID 0x019B
 
 /* GSDML tag: DeviceID */
-#define APP_GSDML_DEVICE_ID 0xbeef
+#define APP_GSDML_DEVICE_ID 0x0300
 
 /* Allowed: 'V', 'R', 'P', 'U', 'T' */
 #define APP_GSDML_SW_REV_PREFIX     'V'
@@ -57,9 +57,9 @@ extern "C" {
    (PNET_SUPPORTED_IM1 | PNET_SUPPORTED_IM2 | PNET_SUPPORTED_IM3)
 
 /* GSDML tag: OrderNumber */
-#define APP_GSDML_ORDER_ID "12345 Abcdefghijk"
+#define APP_GSDML_ORDER_ID "0x300"
 /* GSDML tag: ModuleInfo / Name */
-#define APP_GSDML_PRODUCT_NAME "P-Net Sample Application"
+#define APP_GSDML_PRODUCT_NAME "KRC4 Sample Application"
 
 /* GSDML tag: MinDeviceInterval */
 #define APP_GSDML_MIN_DEVICE_INTERVAL 32 /* 1ms */
@@ -102,16 +102,54 @@ typedef struct
    uint16_t length;
 } app_gsdml_param_t;
 
-#define APP_GSDML_MOD_ID_8_0_DIGITAL_IN     0x00000030
-#define APP_GSDML_MOD_ID_0_8_DIGITAL_OUT    0x00000031
-#define APP_GSDML_MOD_ID_8_8_DIGITAL_IN_OUT 0x00000032
-#define APP_GSDML_SUBMOD_ID_DIGITAL_IN      0x00000130
-#define APP_GSDML_SUBMOD_ID_DIGITAL_OUT     0x00000131
-#define APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT  0x00000132
+// #define APP_GSDML_MOD_ID_8_0_DIGITAL_IN     0x00000030
+// #define APP_GSDML_MOD_ID_0_8_DIGITAL_OUT    0x00000031
+// #define APP_GSDML_MOD_ID_8_8_DIGITAL_IN_OUT 0x00000032
+// #define APP_GSDML_SUBMOD_ID_DIGITAL_IN      0x00000130
+// #define APP_GSDML_SUBMOD_ID_DIGITAL_OUT     0x00000131
+// #define APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT  0x00000132
 
-#define APP_GSDML_INPUT_DATA_SIZE   1 /* bytes, for digital inputs data */
-#define APP_GSDML_OUTPUT_DATA_SIZE  1 /* bytes, for digital outputs data */
-#define APP_GSDM_ALARM_PAYLOAD_SIZE 1 /* bytes */
+#define APP_GSDML_MOD_ID_1_IN_OUT           0x0000008F
+#define APP_GSDML_MOD_ID_2_IN_OUT           0x00000080
+#define APP_GSDML_MOD_ID_3_IN_OUT           0x00000100
+#define APP_GSDML_MOD_ID_4_IN_OUT           0x00000200
+#define APP_GSDML_MOD_ID_5_IN_OUT           0x00000400
+#define APP_GSDML_MOD_ID_6_IN_OUT           0x00000800
+#define APP_GSDML_MOD_ID_7_IN_OUT           0x00000C00
+#define APP_GSDML_MOD_ID_8_IN_OUT           0x00001000
+#define APP_GSDML_MOD_ID_9_IN_OUT           0x00001400
+#define APP_GSDML_MOD_ID_10_IN_OUT          0x00001800
+#define APP_GSDML_MOD_ID_11_IN_OUT          0x00001C00
+#define APP_GSDML_MOD_ID_12_IN_OUT          0x00002000
+#define APP_GSDML_MOD_ID_13_IN_OUT          0x00003000
+#define APP_GSDML_MOD_ID_14_IN_OUT          0x00004000
+#define APP_GSDML_MOD_ID_15_IN_OUT          0x00006000
+#define APP_GSDML_MOD_ID_16_IN_OUT          0x00007F00
+
+#define APP_GSDML_SUBMOD_ID_1_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_2_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_3_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_4_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_5_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_6_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_7_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_8_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_9_IN_OUT           0x00000001
+#define APP_GSDML_SUBMOD_ID_10_IN_OUT          0x00000001
+#define APP_GSDML_SUBMOD_ID_11_IN_OUT          0x00000001
+#define APP_GSDML_SUBMOD_ID_12_IN_OUT          0x00000001
+#define APP_GSDML_SUBMOD_ID_13_IN_OUT          0x00000001
+#define APP_GSDML_SUBMOD_ID_14_IN_OUT          0x00000001
+#define APP_GSDML_SUBMOD_ID_15_IN_OUT          0x00000001
+#define APP_GSDML_SUBMOD_ID_16_IN_OUT          0x00000001
+
+#define APP_GSDML_INPUT_DATA_SIZE_N   256 /* bytes, for digital inputs data */
+#define APP_GSDML_OUTPUT_DATA_SIZE_N  256 /* bytes, for digital outputs data */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_N 256 /* bytes */
+
+#define APP_GSDML_INPUT_DATA_SIZE_S   64 /* bytes, for digital inputs data */
+#define APP_GSDML_OUTPUT_DATA_SIZE_S  64 /* bytes, for digital outputs data */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_S 64 /* bytes */
 
 /**
  * Get module configuration from module id

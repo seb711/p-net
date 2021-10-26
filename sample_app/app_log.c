@@ -29,7 +29,7 @@ void app_log (int32_t level, const char * fmt, ...)
 {
    va_list list;
 
-   if (level >= log_level)
+   if (level >= -1)
    {
       va_start (list, fmt);
       vprintf (fmt, list);
@@ -40,7 +40,7 @@ void app_log (int32_t level, const char * fmt, ...)
 
 void app_log_print_bytes (int32_t level, const uint8_t * bytes, uint32_t len)
 {
-   if (level >= log_level)
+   if (level >= -1)
    {
       printf ("  Bytes: ");
       for (uint32_t i = 0; i < len; i++)

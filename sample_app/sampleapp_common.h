@@ -121,7 +121,7 @@ pnet_t * app_get_pnet_instance (app_data_t * app);
  * @param id               In:    LED number, starting from 0.
  * @param led_state        In:    LED state. Use true for on and false for off.
  */
-void app_set_led (uint16_t id, bool led_state);
+// void app_set_led (uint16_t id, bool led_state);
 
 /**
  * Read button state
@@ -132,7 +132,7 @@ void app_set_led (uint16_t id, bool led_state);
  * @param id               In:    Button number, starting from 0.
  * @return  true if button is pressed, false if not
  */
-bool app_get_button (uint16_t id);
+// bool app_get_button (uint16_t id);
 
 #ifdef __cplusplus
 }

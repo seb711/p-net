@@ -31,12 +31,15 @@
 /* Parameters data
  * Todo: Data is always in pnio data format. Add conversion to uint32_t.
  */
-uint32_t app_param_1 = 0;
-uint32_t app_param_2 = 0;
+// uint32_t app_param_1 = 0;
+// uint32_t app_param_2 = 0;
 
 /* Process data */
-uint8_t inputdata[APP_GSDML_INPUT_DATA_SIZE] = {0};
-uint8_t outputdata[APP_GSDML_OUTPUT_DATA_SIZE] = {0};
+uint8_t inputdata_n[APP_GSDML_INPUT_DATA_SIZE_N] = {0};
+uint8_t outputdata_n[APP_GSDML_OUTPUT_DATA_SIZE_N] = {0};
+/* Process data */
+uint8_t inputdata_s[APP_GSDML_INPUT_DATA_SIZE_S] = {0};
+uint8_t outputdata_s[APP_GSDML_OUTPUT_DATA_SIZE_S] = {0};
 
 /**
  * Set LED state.
@@ -60,8 +63,6 @@ static void app_handle_data_led_state (bool led_state)
 
 uint8_t * app_data_get_input_data (
    uint32_t submodule_id,
-   bool button_pressed,
-   uint8_t counter,
    uint16_t * size,
    uint8_t * iops)
 {
@@ -71,8 +72,8 @@ uint8_t * app_data_get_input_data (
    }
 
    if (
-      submodule_id != APP_GSDML_SUBMOD_ID_DIGITAL_IN &&
-      submodule_id != APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT)
+      submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT &&
+      submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
    {
       /* Automated RT Tester scenario 2 - unsupported (sub)module */
       *iops = PNET_IOXS_BAD;
@@ -82,17 +83,18 @@ uint8_t * app_data_get_input_data (
    /* Prepare input data
     * Lowest 7 bits: Counter    Most significant bit: Button
     */
-   inputdata[0] = counter;
-   if (button_pressed)
-   {
-      inputdata[0] |= 0x80;
-   }
-   else
-   {
-      inputdata[0] &= 0x7F;
-   }
+   printf("Input data received!"); 
+   // inputdata[0] = counter;
+   // if (button_pressed)
+   // {
+   //    inputdata[0] |= 0x80;
+   // }
+   // else
+   // {
+   //    inputdata[0] &= 0x7F;
+   // }
 
-   *size = APP_GSDML_INPUT_DATA_SIZE;
+   *size = APP_GSDML_INPUT_DATA_SIZE_N;
    *iops = PNET_IOXS_GOOD;
 
    return inputdata;
@@ -108,12 +110,18 @@ int app_data_set_output_data (
    if (data != NULL && size == APP_GSDML_OUTPUT_DATA_SIZE)
    {
       if (
-         submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_OUT ||
-         submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT)
+         submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT)
       {
          memcpy (outputdata, data, size);
-         led_state = (outputdata[0] & 0x80) > 0;
-         app_handle_data_led_state (led_state);
+         // led_state = (outputdata_s[0] & 0x80) > 0;
+         print("safe processed");
+         app_handle_data_led_state (false);
+         return 0;
+      } else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT) {
+         memcpy (outputdata, data, size);
+         // led_state = (outputdata_n[0] & 0x80) > 0;
+         print("unsafe processed");
+         app_handle_data_led_state (false);
          return 0;
       }
    }
@@ -127,93 +135,93 @@ int app_data_set_default_outputs (void)
    return 0;
 }
 
-int app_data_write_parameter (
-   uint32_t submodule_id,
-   uint32_t index,
-   const uint8_t * data,
-   uint16_t length)
-{
-   const app_gsdml_param_t * par_cfg;
+// int app_data_write_parameter (
+//    uint32_t submodule_id,
+//    uint32_t index,
+//    const uint8_t * data,
+//    uint16_t length)
+// {
+//    const app_gsdml_param_t * par_cfg;
 
-   par_cfg = app_gsdml_get_parameter_cfg (submodule_id, index);
-   if (par_cfg == NULL)
-   {
-      APP_LOG_WARNING (
-         "PLC write request unsupported submodule/parameter. "
-         "Submodule id: %u Index: %u\n",
-         (unsigned)submodule_id,
-         (unsigned)index);
-      return -1;
-   }
+//    par_cfg = app_gsdml_get_parameter_cfg (submodule_id, index);
+//    if (par_cfg == NULL)
+//    {
+//       APP_LOG_WARNING (
+//          "PLC write request unsupported submodule/parameter. "
+//          "Submodule id: %u Index: %u\n",
+//          (unsigned)submodule_id,
+//          (unsigned)index);
+//       return -1;
+//    }
 
-   if (length != par_cfg->length)
-   {
-      APP_LOG_WARNING (
-         "PLC write request unsupported length. "
-         "Index: %u Length: %u Expected length: %u\n",
-         (unsigned)index,
-         (unsigned)length,
-         par_cfg->length);
-      return -1;
-   }
+//    if (length != par_cfg->length)
+//    {
+//       APP_LOG_WARNING (
+//          "PLC write request unsupported length. "
+//          "Index: %u Length: %u Expected length: %u\n",
+//          (unsigned)index,
+//          (unsigned)length,
+//          par_cfg->length);
+//       return -1;
+//    }
 
-   if (index == APP_GSDM_PARAMETER_1_IDX)
-   {
-      memcpy (&app_param_1, data, sizeof (length));
-   }
-   else if (index == APP_GSDM_PARAMETER_2_IDX)
-   {
-      memcpy (&app_param_2, data, sizeof (length));
-   }
-   APP_LOG_DEBUG ("  Writing %s\n", par_cfg->name);
-   app_log_print_bytes (APP_LOG_LEVEL_DEBUG, data, length);
+//    if (index == APP_GSDM_PARAMETER_1_IDX)
+//    {
+//       memcpy (&app_param_1, data, sizeof (length));
+//    }
+//    else if (index == APP_GSDM_PARAMETER_2_IDX)
+//    {
+//       memcpy (&app_param_2, data, sizeof (length));
+//    }
+//    APP_LOG_DEBUG ("  Writing %s\n", par_cfg->name);
+//    app_log_print_bytes (APP_LOG_LEVEL_DEBUG, data, length);
 
-   return 0;
-}
+//    return 0;
+// }
 
-int app_data_read_parameter (
-   uint32_t submodule_id,
-   uint32_t index,
-   uint8_t ** data,
-   uint16_t * length)
-{
-   const app_gsdml_param_t * par_cfg;
+// int app_data_read_parameter (
+//    uint32_t submodule_id,
+//    uint32_t index,
+//    uint8_t ** data,
+//    uint16_t * length)
+// {
+//    const app_gsdml_param_t * par_cfg;
 
-   par_cfg = app_gsdml_get_parameter_cfg (submodule_id, index);
-   if (par_cfg == NULL)
-   {
-      APP_LOG_WARNING (
-         "PLC read request unsupported submodule/parameter. "
-         "Submodule id: %u Index: %u\n",
-         (unsigned)submodule_id,
-         (unsigned)index);
-      return -1;
-   }
+//    par_cfg = app_gsdml_get_parameter_cfg (submodule_id, index);
+//    if (par_cfg == NULL)
+//    {
+//       APP_LOG_WARNING (
+//          "PLC read request unsupported submodule/parameter. "
+//          "Submodule id: %u Index: %u\n",
+//          (unsigned)submodule_id,
+//          (unsigned)index);
+//       return -1;
+//    }
 
-   if (*length < par_cfg->length)
-   {
-      APP_LOG_WARNING (
-         "PLC read request unsupported length. "
-         "Index: %u Length: %u Expected length: %u\n",
-         (unsigned)index,
-         (unsigned)*length,
-         par_cfg->length);
-      return -1;
-   }
+//    if (*length < par_cfg->length)
+//    {
+//       APP_LOG_WARNING (
+//          "PLC read request unsupported length. "
+//          "Index: %u Length: %u Expected length: %u\n",
+//          (unsigned)index,
+//          (unsigned)*length,
+//          par_cfg->length);
+//       return -1;
+//    }
 
-   APP_LOG_DEBUG ("  Reading %s\n", par_cfg->name);
-   if (index == APP_GSDM_PARAMETER_1_IDX)
-   {
-      *data = (uint8_t *)&app_param_1;
-      *length = sizeof (app_param_1);
-   }
-   else if (index == APP_GSDM_PARAMETER_2_IDX)
-   {
-      *data = (uint8_t *)&app_param_2;
-      *length = sizeof (app_param_2);
-   }
+//    APP_LOG_DEBUG ("  Reading %s\n", par_cfg->name);
+//    if (index == APP_GSDM_PARAMETER_1_IDX)
+//    {
+//       *data = (uint8_t *)&app_param_1;
+//       *length = sizeof (app_param_1);
+//    }
+//    else if (index == APP_GSDM_PARAMETER_2_IDX)
+//    {
+//       *data = (uint8_t *)&app_param_2;
+//       *length = sizeof (app_param_2);
+//    }
 
-   app_log_print_bytes (APP_LOG_LEVEL_DEBUG, *data, *length);
+//    app_log_print_bytes (APP_LOG_LEVEL_DEBUG, *data, *length);
 
-   return 0;
-}
+//    return 0;
+// }
