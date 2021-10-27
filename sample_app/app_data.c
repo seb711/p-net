@@ -66,6 +66,8 @@ uint8_t * app_data_get_input_data (
    uint16_t * size,
    uint8_t * iops)
 {
+   printf("------ app_data_get_input_data ------"); 
+   printf("submodule_id %u", submodule_id);
    // if (size == NULL || iops == NULL)
    // {
    //    return NULL;
@@ -118,7 +120,9 @@ int app_data_set_output_data (
    uint8_t * data,
    uint16_t size)
 {
-
+   printf("------ app_data_set_output_data ------"); 
+   printf("submodule_id %u", submodule_id);
+   printf("data %u", *data)
    if (data != NULL)
    {
       if (
