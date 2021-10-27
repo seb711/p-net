@@ -1032,6 +1032,8 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
          p_subslot = &app->main_api.slots[slot].subslots[subslot];
          printf("slot %u subslot %u\n", slot, subslot);
          printf("subslot_id %u\n", p_subslot->submodule_id);
+         printf("subslot anme %s\n", p_subslot->submodule_name);
+         printf("subslot insize %u\n", p_subslot->data_cfg.insize);
 
          if (p_subslot->plugged)
          {
@@ -1051,6 +1053,7 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
                 */
                if (p_subslot->data_cfg.insize > 0)
                {
+                  printf("set prov state success\n"); 
                   indata = app_data_get_input_data (
                      p_subslot->submodule_id,
                      &indata_size,
