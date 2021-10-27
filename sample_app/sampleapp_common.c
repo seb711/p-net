@@ -1030,7 +1030,7 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
       for (subslot = 0; subslot < PNET_MAX_SUBSLOTS; subslot++)
       {
          p_subslot = &app->main_api.slots[slot].subslots[subslot];
-         printf("slot %u subslot %u", slot, subslot)
+         printf("slot %u subslot %u", slot, subslot);
          if (p_subslot->plugged)
          {
             iops = PNET_IOXS_GOOD;
