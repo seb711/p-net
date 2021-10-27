@@ -122,7 +122,7 @@ int app_data_set_output_data (
 {
    printf("------ app_data_set_output_data ------"); 
    printf("submodule_id %u", submodule_id);
-   printf("data %u", *data)
+   printf("data %u", *data);
    if (data != NULL)
    {
       if (
