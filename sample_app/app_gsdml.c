@@ -141,7 +141,7 @@ static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
    &dap_interface_1,
    &dap_port_1,
    &dap_port_2,
-
+   
    &submod_digital_inout_safe,
    &submod_digital_inout,
 };
