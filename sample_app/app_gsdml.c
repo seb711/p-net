@@ -104,7 +104,7 @@ static const app_gsdml_submodule_t dap_port_2 = {
 //    .parameters = {0}};
 
 static const app_gsdml_submodule_t submod_digital_inout_safe = {
-   .id = 0x0000008F,
+   .id = 0x0001008F,
    .name = "Digital Input/Output Safe",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,

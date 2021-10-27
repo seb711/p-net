@@ -99,7 +99,7 @@
             <OrderNumber Value="KUKA Device FIO64" />
           </ModuleInfo>
           <VirtualSubmoduleList>
-            <VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x00000001" PROFIsafeSupported="true" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+            <VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x0001008F" PROFIsafeSupported="true" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
               <IOData F_IO_StructureDescCRC="3595">
                 <Input Consistency="All items consistency">
                   <DataItem DataType="Unsigned8" UseAsBits="true" TextId="FDI8" />
@@ -387,7 +387,7 @@
             <OrderNumber Value="KUKA Device IO256" />
           </ModuleInfo>
           <VirtualSubmoduleList>
-            <VirtualSubmoduleItem ID="8" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+            <VirtualSubmoduleItem ID="8" SubmoduleIdentNumber="0x00011000" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
               <IOData>
                 <Input>
                   <DataItem TextId="DI8" DataType="Unsigned8" UseAsBits="true" />
