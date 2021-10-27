@@ -81,7 +81,7 @@ uint8_t * app_data_get_input_data (
       *iops = PNET_IOXS_BAD;
       return NULL;
    }
-   else if (submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT)
+   else if (submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT)
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
@@ -89,7 +89,7 @@ uint8_t * app_data_get_input_data (
 
       return inputdata_s;
    }
-   else if (submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
+   else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT)
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_N;
       *iops = PNET_IOXS_GOOD;
