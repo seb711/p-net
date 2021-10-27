@@ -132,9 +132,9 @@ int app_data_set_output_data (
          size == APP_GSDML_OUTPUT_DATA_SIZE_S)
       {
          if (outputdata_s[0] == 1) {
-            outputdata_s[0] = 0
+            outputdata_s[0] = 0;
          } else {
-            outputdata_s[0] = 1
+            outputdata_s[0] = 1;
          }
          memcpy (outputdata_s, data, size);
          // led_state = (outputdata_s[0] & 0x80) > 0;
@@ -147,9 +147,9 @@ int app_data_set_output_data (
          size == APP_GSDML_OUTPUT_DATA_SIZE_N)
       {
          if (outputdata_n[0] == 1) {
-            outputdata_n[0] = 0
+            outputdata_n[0] = 0;
          } else {
-            outputdata_n[0] = 1
+            outputdata_n[0] = 1;
          }
          memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
