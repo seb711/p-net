@@ -1007,6 +1007,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       {
          app_set_outputs_default_value();
       }
+      printf("succeeed!!"); 
    }
 }
 
