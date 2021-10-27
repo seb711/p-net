@@ -184,7 +184,7 @@ const app_gsdml_submodule_t * app_gsdml_get_submodule_cfg (uint32_t id)
    {
       if (app_gsdml_submodules[i]->id == id)
       {
-         printf("app_gsdml_get_submodule_cfg %u %s", id, app_gsdml_submodules[i]->name)
+         printf("app_gsdml_get_submodule_cfg %u %s\n", id, app_gsdml_submodules[i]->name);
          return app_gsdml_submodules[i];
       }
    }
