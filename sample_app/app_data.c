@@ -41,6 +41,8 @@ uint8_t outputdata_n[APP_GSDML_OUTPUT_DATA_SIZE_N] = {0};
 uint8_t inputdata_s[APP_GSDML_INPUT_DATA_SIZE_S] = {0};
 uint8_t outputdata_s[APP_GSDML_OUTPUT_DATA_SIZE_S] = {0};
 
+uint8_t counter = 0; 
+
 // /**
 //  * Set LED state.
 //  *
@@ -86,14 +88,15 @@ uint8_t * app_data_get_input_data (
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
       printf ("Input s-data received!\n");
-      if (inputdata_s[0] == 1)
+      if (counter == 1)
       {
-         inputdata_s[0] = 0;
+         counter = 0;
       }
       else
       {
-         inputdata_s[0] = 1;
+         counter = 1;
       }
+      inputdata_s[0] = counter;
       return inputdata_s;
    }
    else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT)
@@ -101,14 +104,15 @@ uint8_t * app_data_get_input_data (
       *size = APP_GSDML_INPUT_DATA_SIZE_N;
       *iops = PNET_IOXS_GOOD;
       printf ("Input n-data received!\n");
-      if (inputdata_n[0] == 1)
+      if (counter == 1)
       {
-         inputdata_n[0] = 0;
+         counter = 0;
       }
       else
       {
-         inputdata_n[0] = 1;
+         counter = 1;
       }
+      inputdata_n[0] = counter;
       return inputdata_n;
    }
    *iops = PNET_IOXS_GOOD;
