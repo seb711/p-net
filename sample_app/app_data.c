@@ -66,7 +66,7 @@ uint8_t * app_data_get_input_data (
    uint16_t * size,
    uint8_t * iops)
 {
-   printf("------ app_data_get_input_data ------"); 
+   printf("------ app_data_get_input_data ------\n"); 
    printf("submodule_id %u", submodule_id);
    // if (size == NULL || iops == NULL)
    // {
@@ -85,7 +85,7 @@ uint8_t * app_data_get_input_data (
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
-      printf ("Input s-data received!");
+      printf ("Input s-data received!\n");
 
       return inputdata_s;
    }
@@ -93,7 +93,7 @@ uint8_t * app_data_get_input_data (
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_N;
       *iops = PNET_IOXS_GOOD;
-      printf ("Input n-data received!");
+      printf ("Input n-data received!\n");
 
       return inputdata_n;
    }
