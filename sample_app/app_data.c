@@ -125,24 +125,25 @@ int app_data_set_output_data (
    printf("data %u\n", *data);
    if (data != NULL)
    {
+
       if (
          submodule_id == APP_GSDML_SUBMOD_ID_1_IN_OUT &&
          size == APP_GSDML_OUTPUT_DATA_SIZE_S)
       {
-         memcpy (outputdata_s, data, size);
+         // memcpy (outputdata_s, data, size);
          // led_state = (outputdata_s[0] & 0x80) > 0;
          printf ("safe processed\n");
-         app_handle_data_led_state (false);
+         // app_handle_data_led_state (false);
          return 0;
       }
       else if (
          submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT &&
          size == APP_GSDML_OUTPUT_DATA_SIZE_N)
       {
-         memcpy (outputdata_n, data, size);
+         // memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
          printf ("unsafe processed\n");
-         app_handle_data_led_state (false);
+         // app_handle_data_led_state (false);
          return 0;
       }
    }
