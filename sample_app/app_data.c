@@ -41,25 +41,25 @@ uint8_t outputdata_n[APP_GSDML_OUTPUT_DATA_SIZE_N] = {0};
 uint8_t inputdata_s[APP_GSDML_INPUT_DATA_SIZE_S] = {0};
 uint8_t outputdata_s[APP_GSDML_OUTPUT_DATA_SIZE_S] = {0};
 
-/**
- * Set LED state.
- *
- * Compares new state with previous state, to minimize system calls.
- *
- * Uses the hardware specific app_set_led() function.
- *
- * @param led_state        In:    New LED state
- */
-static void app_handle_data_led_state (bool led_state)
-{
-   // static bool previous_led_state = false;
+// /**
+//  * Set LED state.
+//  *
+//  * Compares new state with previous state, to minimize system calls.
+//  *
+//  * Uses the hardware specific app_set_led() function.
+//  *
+//  * @param led_state        In:    New LED state
+//  */
+// static void app_handle_data_led_state (bool led_state)
+// {
+//    // static bool previous_led_state = false;
 
-   // if (led_state != previous_led_state)
-   // {
-   //    app_set_led (APP_DATA_LED_ID, led_state);
-   // }
-   // previous_led_state = led_state;
-}
+//    // if (led_state != previous_led_state)
+//    // {
+//    //    app_set_led (APP_DATA_LED_ID, led_state);
+//    // }
+//    // previous_led_state = led_state;
+// }
 
 uint8_t * app_data_get_input_data (
    uint32_t submodule_id,
