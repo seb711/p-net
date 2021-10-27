@@ -1031,13 +1031,17 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
       {
          p_subslot = &app->main_api.slots[slot].subslots[subslot];
          printf("slot %u subslot %u\n", slot, subslot);
+         printf("subslot_id %u\n", p_subslot->submodule_id);
+
          if (p_subslot->plugged)
          {
+            printf("plugged\n"); 
             iops = PNET_IOXS_GOOD;
             if (
                p_subslot->data_cfg.insize > 0 ||
                p_subslot->data_cfg.data_dir == PNET_DIR_NO_IO)
             {
+               printf("input exitst\n"); 
                indata = NULL;
                indata_size = 0;
 
