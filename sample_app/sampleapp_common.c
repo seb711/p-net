@@ -920,7 +920,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
    uint16_t outdata_length;
    uint8_t outdata_iops;
 
-   uint8_t outdata_buf[10]; /* Todo: Remove temporary buffer */
+   uint8_t outdata_buf[64]; /* Todo: Remove temporary buffer */
 
    if (app == NULL)
    {

@@ -156,7 +156,7 @@ int app_data_set_default_outputs (void)
    outputdata_s[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
    outputdata_n[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
 
-   app_handle_data_led_state (false);
+   // app_handle_data_led_state (false);
    return 0;
 }
 
