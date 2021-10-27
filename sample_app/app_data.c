@@ -73,30 +73,30 @@ uint8_t * app_data_get_input_data (
    //    return NULL;
    // }
 
-   // if (
-   //    submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT &&
-   //    submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
-   // {
-   //    /* Automated RT Tester scenario 2 - unsupported (sub)module */
-   //    *iops = PNET_IOXS_BAD;
-   //    return NULL;
-   // }
-   // else if (submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT)
-   // {
-   //    *size = APP_GSDML_INPUT_DATA_SIZE_S;
-   //    *iops = PNET_IOXS_GOOD;
-   //    printf ("Input s-data received!");
+   if (
+      submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT &&
+      submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
+   {
+      /* Automated RT Tester scenario 2 - unsupported (sub)module */
+      *iops = PNET_IOXS_BAD;
+      return NULL;
+   }
+   else if (submodule_id != APP_GSDML_SUBMOD_ID_1_IN_OUT)
+   {
+      *size = APP_GSDML_INPUT_DATA_SIZE_S;
+      *iops = PNET_IOXS_GOOD;
+      printf ("Input s-data received!");
 
-   //    return inputdata_s;
-   // }
-   // else if (submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
-   // {
-   //    *size = APP_GSDML_INPUT_DATA_SIZE_N;
-   //    *iops = PNET_IOXS_GOOD;
-   //    printf ("Input n-data received!");
+      return inputdata_s;
+   }
+   else if (submodule_id != APP_GSDML_SUBMOD_ID_8_IN_OUT)
+   {
+      *size = APP_GSDML_INPUT_DATA_SIZE_N;
+      *iops = PNET_IOXS_GOOD;
+      printf ("Input n-data received!");
 
-   //    return inputdata_n;
-   // }
+      return inputdata_n;
+   }
    *iops = PNET_IOXS_GOOD;
    return inputdata_s;
 
