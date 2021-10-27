@@ -120,9 +120,9 @@ int app_data_set_output_data (
    uint8_t * data,
    uint16_t size)
 {
-   printf("------ app_data_set_output_data ------"); 
-   printf("submodule_id %u", submodule_id);
-   printf("data %u", *data);
+   printf("------ app_data_set_output_data ------\n"); 
+   printf("submodule_id %u\n", submodule_id);
+   printf("data %u\n", *data);
    if (data != NULL)
    {
       if (
@@ -131,7 +131,7 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_s, data, size);
          // led_state = (outputdata_s[0] & 0x80) > 0;
-         printf ("safe processed");
+         printf ("safe processed\n");
          app_handle_data_led_state (false);
          return 0;
       }
@@ -141,7 +141,7 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         printf ("unsafe processed");
+         printf ("unsafe processed\n");
          app_handle_data_led_state (false);
          return 0;
       }
