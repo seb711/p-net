@@ -1000,7 +1000,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       }
       else if (outdata_iops == PNET_IOXS_GOOD)
       {
-         if ((counter % 10) > 5)
+         if ((app->counter_data % 10) > 5)
          {
             outdata_buf[0] |= 0x80;
          }
