@@ -937,7 +937,8 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       indata = app_data_get_input_data (
          subslot->submodule_id,
          &indata_size,
-         &iops);
+         &iops, 
+         app->counter_data);
 
       if (indata != NULL)
       {

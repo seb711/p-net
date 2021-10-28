@@ -66,7 +66,8 @@ uint8_t counter = 0;
 uint8_t * app_data_get_input_data (
    uint32_t submodule_id,
    uint16_t * size,
-   uint8_t * iops)
+   uint8_t * iops, 
+   uint8_t counter)
 {
    printf ("------ app_data_get_input_data ------\n");
    printf ("submodule_id %u", submodule_id);
@@ -88,7 +89,7 @@ uint8_t * app_data_get_input_data (
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
       printf ("Input s-data received!\n");
-      if (counter == 1)
+      if ((counter % 2) == 1)
       {
          counter = 0;
          printf("\n\n\nCOUNTER = 0\n\n\n");

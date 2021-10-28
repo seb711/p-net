@@ -61,7 +61,8 @@ extern "C" {
 uint8_t * app_data_get_input_data (
    uint32_t submodule_id,
    uint16_t * size,
-   uint8_t * iops);
+   uint8_t * iops, 
+   uint8_t counter);
 
 /**
  * Set PNIO output data using module id.
