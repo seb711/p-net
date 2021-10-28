@@ -1002,38 +1002,38 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       {
          if ((app->counter_data % 10) > 5)
          {
-            outdata_buf[0] |= 0xff;
-            outdata_buf[1] |= 0xff;
-            outdata_buf[2] |= 0xff;
-            outdata_buf[3] |= 0xff;
-            outdata_buf[4] |= 0xff;
-            outdata_buf[5] |= 0xff;
-            outdata_buf[6] |= 0xff;
-            outdata_buf[7] |= 0xff;
-            outdata_buf[8] |= 0xff;
-            outdata_buf[9] |= 0xff;
-            outdata_buf[10] |= 0xff;
-            outdata_buf[11] |= 0xff;
-            outdata_buf[12] |= 0xff;
-            outdata_buf[13] |= 0xff;
-            outdata_buf[14] |= 0xff;
-            outdata_buf[15] |= 0xff;
-            outdata_buf[16] |= 0xff;
-            outdata_buf[17] |= 0xff;
-            outdata_buf[18] |= 0xff;
-            outdata_buf[19] |= 0xff;
-            outdata_buf[20] |= 0xff;
-            outdata_buf[21] |= 0xff;
-            outdata_buf[22] |= 0xff;
-            outdata_buf[23] |= 0xff;
-            outdata_buf[24] |= 0xff;
-            outdata_buf[25] |= 0xff;
-            outdata_buf[26] |= 0xff;
-            outdata_buf[27] |= 0xff;
-            outdata_buf[28] |= 0xff;
-            outdata_buf[29] |= 0xff;
-            outdata_buf[30] |= 0xff;
-            outdata_buf[31] |= 0xff;
+            outdata_buf[0] |= 0x80;
+            outdata_buf[1] |= 0x80;
+            outdata_buf[2] |= 0x80;
+            outdata_buf[3] |= 0x80;
+            outdata_buf[4] |= 0x80;
+            outdata_buf[5] |= 0x80;
+            outdata_buf[6] |= 0x80;
+            outdata_buf[7] |= 0x80;
+            outdata_buf[8] |= 0x80;
+            outdata_buf[9] |= 0x80;
+            outdata_buf[10] |= 0x80;
+            outdata_buf[11] |= 0x80;
+            outdata_buf[12] |= 0x80;
+            outdata_buf[13] |= 0x80;
+            outdata_buf[14] |= 0x80;
+            outdata_buf[15] |= 0x80;
+            outdata_buf[16] |= 0x80;
+            outdata_buf[17] |= 0x80;
+            outdata_buf[18] |= 0x80;
+            outdata_buf[19] |= 0x80;
+            outdata_buf[20] |= 0x80;
+            outdata_buf[21] |= 0x80;
+            outdata_buf[22] |= 0x80;
+            outdata_buf[23] |= 0x80;
+            outdata_buf[24] |= 0x80;
+            outdata_buf[25] |= 0x80;
+            outdata_buf[26] |= 0x80;
+            outdata_buf[27] |= 0x80;
+            outdata_buf[28] |= 0x80;
+            outdata_buf[29] |= 0x80;
+            outdata_buf[30] |= 0x80;
+            outdata_buf[31] |= 0x80;
          }
          else
          {
