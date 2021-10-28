@@ -945,7 +945,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
          iops = PNET_IOXS_GOOD;
       }
 
-      printf ("indata size %u\n", indata_size);
+      // printf ("indata size %u\n", indata_size);
 
       (void)pnet_input_set_data_and_iops (
          app->net,
@@ -1001,6 +1001,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       else if (outdata_iops == PNET_IOXS_GOOD)
       {
          /* Set output data for submodule */
+         printf("old counter = %u\n", app->counter_data); 
          app_data_set_output_data (
             subslot->submodule_id,
             outdata_buf,
