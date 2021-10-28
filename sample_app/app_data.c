@@ -96,7 +96,7 @@ uint8_t * app_data_get_input_data (
       {
          counter = 1;
       }
-      inputdata_s[0] = counter;
+      inputdata_s[0]++;
       printf("inputdatas %u\n", inputdata_s[0]);
       return inputdata_s;
    }
