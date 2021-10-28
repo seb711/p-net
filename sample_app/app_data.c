@@ -69,8 +69,8 @@ uint8_t * app_data_get_input_data (
    uint8_t * iops,
    uint8_t counter)
 {
-   printf ("------ app_data_get_input_data ------\n");
-   printf ("submodule_id %u", submodule_id);
+   // printf ("------ app_data_get_input_data ------\n");
+   // printf ("submodule_id %u", submodule_id);
    // if (size == NULL || iops == NULL)
    // {
    //    return NULL;
@@ -88,7 +88,6 @@ uint8_t * app_data_get_input_data (
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
-      printf ("Count = %u!\n", counter);
       if ((counter % 10) > 5)
       {
          inputdata_s[0] |= 0x80;
@@ -97,16 +96,14 @@ uint8_t * app_data_get_input_data (
       {
          inputdata_s[0] &= 0x7F;
       }
-
-      printf ("inputdatas %u\n", inputdata_s[0]);
       return inputdata_s;
    }
    else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT)
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_N;
       *iops = PNET_IOXS_GOOD;
-      printf ("Input n-data received!\n");
-      printf ("Count = %u!\n", counter);
+      // printf ("Input n-data received!\n");
+      // printf ("Count = %u!\n", counter);
 
       inputdata_n[0] = counter;
 
@@ -135,10 +132,10 @@ int app_data_set_output_data (
    uint8_t * data,
    uint16_t size)
 {
-   printf ("------ app_data_set_output_data ------\n");
-   printf ("submodule_id %u\n", submodule_id);
-   printf ("size %u\n", size);
-   printf ("data %u\n", *data);
+   // printf ("------ app_data_set_output_data ------\n");
+   // printf ("submodule_id %u\n", submodule_id);
+   // printf ("size %u\n", size);
+   // printf ("data %u\n", *data);
    if (data != NULL)
    {
 
@@ -148,7 +145,7 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_s, data, size);
          // led_state = (outputdata_s[0] & 0x80) > 0;
-         printf ("safe processed\n");
+         // printf ("safe processed\n");
          // app_handle_data_led_state (false);
          return 0;
       }
@@ -158,7 +155,8 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         printf ("unsafe processed\n");
+
+         printf ("\nnew counter = %u\n", outputdata_n[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
