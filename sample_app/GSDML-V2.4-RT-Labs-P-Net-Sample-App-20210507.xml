@@ -75,12 +75,12 @@
             </VirtualSubmoduleItem>
           </VirtualSubmoduleList>
           <SystemDefinedSubmoduleList>
-            <InterfaceSubmoduleItem ID="IDS_3I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" TextId="Interface1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="LLDP;SNMP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
+            <InterfaceSubmoduleItem ID="IDS_3I" SubslotNumber="32768" SubmoduleIdentNumber="0x00008000" TextId="Interface1" SupportedRT_Classes="RT_CLASS_1" IsochroneModeSupported="false" SupportedProtocols="LLDP;SNMP" DCP_BoundarySupported="true" PTP_BoundarySupported="true">
               <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
                 <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
               </ApplicationRelations>
             </InterfaceSubmoduleItem>
-            <PortSubmoduleItem ID="IDS_3P" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" TextId="Port1">
+            <PortSubmoduleItem ID="IDS_3P" SubslotNumber="32769" SubmoduleIdentNumber="0x00008001" TextId="Port1">
               <MAUTypeList>
                 <MAUTypeItem Value="16" />
               </MAUTypeList>

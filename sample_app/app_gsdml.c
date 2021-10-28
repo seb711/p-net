@@ -59,7 +59,7 @@ static const app_gsdml_submodule_t dap_indentity_1 = {
    .parameters = {0}};
 
 static const app_gsdml_submodule_t dap_interface_1 = {
-   .name = "DAP Interface 1",
+   .name = "Interface1",
    .api = APP_GSDML_API,
    .id = PNET_SUBMOD_DAP_INTERFACE_1_IDENT,
    .data_dir = PNET_DIR_NO_IO,
@@ -68,7 +68,7 @@ static const app_gsdml_submodule_t dap_interface_1 = {
    .parameters = {0}};
 
 static const app_gsdml_submodule_t dap_port_1 = {
-   .name = "DAP Port 1",
+   .name = "Port1",
    .api = APP_GSDML_API,
    .id = PNET_SUBMOD_DAP_INTERFACE_1_PORT_1_IDENT,
    .data_dir = PNET_DIR_NO_IO,
