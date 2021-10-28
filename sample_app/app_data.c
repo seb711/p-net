@@ -89,7 +89,7 @@ uint8_t * app_data_get_input_data (
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
       printf ("Count = %u!\n", counter);
-      if ((counter % 2) == 1)
+      if ((counter % 10) > 5)
       {
          counter = 0;
          printf("\n\n\nCOUNTER = 0\n\n\n");
