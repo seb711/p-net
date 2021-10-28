@@ -115,6 +115,7 @@ uint8_t * app_data_get_input_data (
       {
          inputdata_n[0] &= 0x7F;
       }
+      printf("now: %u\n", inputdata_n[0]);
       return inputdata_n;
    }
    *iops = PNET_IOXS_GOOD;
