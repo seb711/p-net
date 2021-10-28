@@ -91,14 +91,10 @@ uint8_t * app_data_get_input_data (
       printf ("Count = %u!\n", counter);
       if ((counter % 10) > 5)
       {
-         counter = 0;
-         printf("\n\n\nCOUNTER = 0\n\n\n");
          inputdata_s[0] |= 0x80;
       }
       else
       {
-         counter = 1;
-         printf("\n\n\nCOUNTER = 1\n\n\n");
          inputdata_s[0] &= 0x7F;
       }
 
@@ -110,15 +106,15 @@ uint8_t * app_data_get_input_data (
       *size = APP_GSDML_INPUT_DATA_SIZE_N;
       *iops = PNET_IOXS_GOOD;
       printf ("Input n-data received!\n");
-      if (counter == 1)
+      printf ("Count = %u!\n", counter);
+      if ((counter % 10) > 5)
       {
-         counter = 0;
+         inputdata_n[0] |= 0x80;
       }
       else
       {
-         counter = 1;
+         inputdata_n[0] &= 0x7F;
       }
-      inputdata_n[0] = counter;
       return inputdata_n;
    }
    *iops = PNET_IOXS_GOOD;
