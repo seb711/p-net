@@ -1000,6 +1000,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       }
       else if (outdata_iops == PNET_IOXS_GOOD)
       {
+         printf("outdata %u", outdata_buf[0]);
          /* Set output data for submodule */
          app_data_set_output_data (
             subslot->submodule_id,
