@@ -88,7 +88,7 @@ uint8_t * app_data_get_input_data (
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_S;
       *iops = PNET_IOXS_GOOD;
-      printf ("Input s-data received!\n");
+      printf ("Count = %u!\n", counter);
       if ((counter % 2) == 1)
       {
          counter = 0;
