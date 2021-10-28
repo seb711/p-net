@@ -107,7 +107,7 @@ uint8_t * app_data_get_input_data (
       *iops = PNET_IOXS_GOOD;
       printf ("Input n-data received!\n");
       printf ("Count = %u!\n", counter);
-      if ((app->counter_data % 10) > 5)
+      if ((counter % 10) > 5)
          {
             inputdata_n[0] |= 0xff;
             inputdata_n[1] |= 0xff;
