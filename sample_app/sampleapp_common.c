@@ -937,7 +937,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       indata = app_data_get_input_data (
          subslot->submodule_id,
          &indata_size,
-         &iops, 
+         &iops,
          app->counter_data);
 
       if (indata != NULL)
@@ -945,7 +945,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
          iops = PNET_IOXS_GOOD;
       }
 
-      printf("indata size %u\n", indata_size); 
+      printf ("indata size %u\n", indata_size);
 
       (void)pnet_input_set_data_and_iops (
          app->net,
@@ -1000,7 +1000,16 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       }
       else if (outdata_iops == PNET_IOXS_GOOD)
       {
-         printf("outdata %u", outdata_buf[0]);
+         if ((counter % 10) > 5)
+         {
+            outdata_buf[0] |= 0x80;
+         }
+         else
+         {
+            outdata_buf[0] &= 0x7F;
+         }
+         printf ("outdata %u", outdata_buf[0]);
+
          /* Set output data for submodule */
          app_data_set_output_data (
             subslot->submodule_id,
@@ -1011,7 +1020,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       {
          app_set_outputs_default_value();
       }
-      printf("succeeed!!"); 
+      printf ("succeeed!!");
    }
 }
 
@@ -1035,20 +1044,20 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
       for (subslot = 0; subslot < PNET_MAX_SUBSLOTS; subslot++)
       {
          p_subslot = &app->main_api.slots[slot].subslots[subslot];
-         printf("slot %u subslot %u\n", slot, subslot);
-         printf("subslot_id %u\n", p_subslot->submodule_id);
-         printf("subslot_name %s\n", p_subslot->submodule_name);
-         printf("subslot_insize %u\n", p_subslot->data_cfg.insize);
+         printf ("slot %u subslot %u\n", slot, subslot);
+         printf ("subslot_id %u\n", p_subslot->submodule_id);
+         printf ("subslot_name %s\n", p_subslot->submodule_name);
+         printf ("subslot_insize %u\n", p_subslot->data_cfg.insize);
 
          if (p_subslot->plugged)
          {
-            printf("plugged\n"); 
+            printf ("plugged\n");
             iops = PNET_IOXS_GOOD;
             if (
                p_subslot->data_cfg.insize > 0 ||
                p_subslot->data_cfg.data_dir == PNET_DIR_NO_IO)
             {
-               printf("input exitst\n"); 
+               printf ("input exitst\n");
                indata = NULL;
                indata_size = 0;
 
@@ -1058,11 +1067,11 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
                 */
                if (p_subslot->data_cfg.insize > 0)
                {
-                  printf("set prov state success\n"); 
+                  printf ("set prov state success\n");
                   indata = app_data_get_input_data (
                      p_subslot->submodule_id,
                      &indata_size,
-                     &iops, 
+                     &iops,
                      app->counter_data);
                }
 
