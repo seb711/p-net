@@ -108,7 +108,7 @@ uint8_t * app_data_get_input_data (
       printf ("Input n-data received!\n");
       printf ("Count = %u!\n", counter);
 
-      inputdata_n[0] |= counter;
+      inputdata_n[0] = counter;
 
       return inputdata_n;
    }
