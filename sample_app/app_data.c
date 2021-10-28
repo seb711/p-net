@@ -66,7 +66,7 @@ uint8_t counter = 0;
 uint8_t * app_data_get_input_data (
    uint32_t submodule_id,
    uint16_t * size,
-   uint8_t * iops, 
+   uint8_t * iops,
    uint8_t counter)
 {
    printf ("------ app_data_get_input_data ------\n");
@@ -107,77 +107,9 @@ uint8_t * app_data_get_input_data (
       *iops = PNET_IOXS_GOOD;
       printf ("Input n-data received!\n");
       printf ("Count = %u!\n", counter);
-      if ((counter % 10) > 5)
-         {
-            inputdata_n[0] |= counter;
-            inputdata_n[1] |= 0xff;
-            inputdata_n[2] |= 0xff;
-            inputdata_n[3] |= 0xff;
-            inputdata_n[4] |= 0xff;
-            inputdata_n[5] |= 0xff;
-            inputdata_n[6] |= 0xff;
-            inputdata_n[7] |= 0xff;
-            inputdata_n[8] |= 0xff;
-            inputdata_n[9] |= 0xff;
-            inputdata_n[10] |= 0xff;
-            inputdata_n[11] |= 0xff;
-            inputdata_n[12] |= 0xff;
-            inputdata_n[13] |= 0xff;
-            inputdata_n[14] |= 0xff;
-            inputdata_n[15] |= 0xff;
-            inputdata_n[16] |= 0xff;
-            inputdata_n[17] |= 0xff;
-            inputdata_n[18] |= 0xff;
-            inputdata_n[19] |= 0xff;
-            inputdata_n[20] |= 0xff;
-            inputdata_n[21] |= 0xff;
-            inputdata_n[22] |= 0xff;
-            inputdata_n[23] |= 0xff;
-            inputdata_n[24] |= 0xff;
-            inputdata_n[25] |= 0xff;
-            inputdata_n[26] |= 0xff;
-            inputdata_n[27] |= 0xff;
-            inputdata_n[28] |= 0xff;
-            inputdata_n[29] |= 0xff;
-            inputdata_n[30] |= 0xff;
-            inputdata_n[31] |= 0xff;
-         }
-         else
-         {
-            inputdata_n[0] &= 0x00;
-            inputdata_n[1] &= 0x00;
-            inputdata_n[2] &= 0x00;
-            inputdata_n[3] &= 0x00;
-            inputdata_n[4] &= 0x00;
-            inputdata_n[5] &= 0x00;
-            inputdata_n[6] &= 0x00;
-            inputdata_n[7] &= 0x00;
-            inputdata_n[8] &= 0x00;
-            inputdata_n[9] &= 0x00;
-            inputdata_n[10] &= 0x00;
-            inputdata_n[11] &= 0x00;
-            inputdata_n[12] &= 0x00;
-            inputdata_n[13] &= 0x00;
-            inputdata_n[14] &= 0x00;
-            inputdata_n[15] &= 0x00;
-            inputdata_n[16] &= 0x00;
-            inputdata_n[17] &= 0x00;
-            inputdata_n[18] &= 0x00;
-            inputdata_n[19] &= 0x00;
-            inputdata_n[20] &= 0x00;
-            inputdata_n[21] &= 0x00;
-            inputdata_n[22] &= 0x00;
-            inputdata_n[23] &= 0x00;
-            inputdata_n[24] &= 0x00;
-            inputdata_n[25] &= 0x00;
-            inputdata_n[26] &= 0x00;
-            inputdata_n[27] &= 0x00;
-            inputdata_n[28] &= 0x00;
-            inputdata_n[29] &= 0x00;
-            inputdata_n[30] &= 0x00;
-            inputdata_n[31] &= 0x00;
-         }
-      printf("now: %u\n", inputdata_n[0]);
+
+      inputdata_n[0] |= counter;
+
       return inputdata_n;
    }
    *iops = PNET_IOXS_GOOD;
