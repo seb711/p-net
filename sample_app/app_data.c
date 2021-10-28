@@ -97,7 +97,7 @@ uint8_t * app_data_get_input_data (
          counter = 1;
       }
       inputdata_s[0] = counter;
-      printf("inputdatas %u", inputdata_s[0]);
+      printf("inputdatas %u\n", inputdata_s[0]);
       return inputdata_s;
    }
    else if (submodule_id == APP_GSDML_SUBMOD_ID_8_IN_OUT)
