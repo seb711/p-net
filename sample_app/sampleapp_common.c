@@ -1001,11 +1001,12 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       else if (outdata_iops == PNET_IOXS_GOOD)
       {
          /* Set output data for submodule */
-         printf("old counter = %u\n", app->counter_data); 
+
          app_data_set_output_data (
             subslot->submodule_id,
             outdata_buf,
-            outdata_length);
+            outdata_length, 
+            app->counter_data);
       }
       else
       {

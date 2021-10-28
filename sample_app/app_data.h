@@ -74,7 +74,8 @@ uint8_t * app_data_get_input_data (
 int app_data_set_output_data (
    uint32_t submodule_id,
    uint8_t * data,
-   uint16_t size);
+   uint16_t size, 
+   uint8_t counter);
 
 /**
  * Set default outputs.

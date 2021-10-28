@@ -130,7 +130,8 @@ uint8_t * app_data_get_input_data (
 int app_data_set_output_data (
    uint32_t submodule_id,
    uint8_t * data,
-   uint16_t size)
+   uint16_t size, 
+   uint8_t counter)
 {
    // printf ("------ app_data_set_output_data ------\n");
    // printf ("submodule_id %u\n", submodule_id);
@@ -155,7 +156,7 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_n, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-
+         printf("old counter = %u\n", counter);
          printf ("\nnew counter = %u\n", outputdata_n[0]);
          // app_handle_data_led_state (false);
          return 0;
