@@ -1002,11 +1002,11 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
       {
          if ((app->counter_data % 10) > 5)
          {
-            outdata_buf[0] |= 0x80;
+            outdata_buf = {1};
          }
          else
          {
-            outdata_buf[0] &= 0x7F;
+            outdata_buf[0] = {0};
          }
          printf ("outdata %u", outdata_buf[0]);
 
