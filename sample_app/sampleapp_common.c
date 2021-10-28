@@ -945,6 +945,8 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
          iops = PNET_IOXS_GOOD;
       }
 
+      printf("indata size %u\n", indata_size); 
+
       (void)pnet_input_set_data_and_iops (
          app->net,
          APP_GSDML_API,
