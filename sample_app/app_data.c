@@ -91,11 +91,13 @@ uint8_t * app_data_get_input_data (
       if (counter == 1)
       {
          counter = 0;
+         printf("\n\n\nCOUNTER = 0\n\n\n");
          inputdata_s[0] |= 0x80;
       }
       else
       {
          counter = 1;
+         printf("\n\n\nCOUNTER = 1\n\n\n");
          inputdata_s[0] &= 0x7F;
       }
 
