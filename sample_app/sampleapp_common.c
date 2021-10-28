@@ -1059,7 +1059,8 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
                   indata = app_data_get_input_data (
                      p_subslot->submodule_id,
                      &indata_size,
-                     &iops);
+                     &iops, 
+                     app->counter_data);
                }
 
                ret = pnet_input_set_data_and_iops (
