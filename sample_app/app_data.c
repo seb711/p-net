@@ -109,7 +109,7 @@ uint8_t * app_data_get_input_data (
       printf ("Count = %u!\n", counter);
       if ((counter % 10) > 5)
          {
-            inputdata_n[0] |= 0xff;
+            inputdata_n[0] |= counter;
             inputdata_n[1] |= 0xff;
             inputdata_n[2] |= 0xff;
             inputdata_n[3] |= 0xff;
