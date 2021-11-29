@@ -29,24 +29,19 @@ void app_log (int32_t level, const char * fmt, ...)
 {
    va_list list;
 
-   if (level >= -1)
-   {
-      va_start (list, fmt);
-      vprintf (fmt, list);
-      va_end (list);
-      fflush (stdout);
-   }
+   va_start (list, fmt);
+   vprintf (fmt, list);
+   va_end (list);
+   fflush (stdout);
 }
 
 void app_log_print_bytes (int32_t level, const uint8_t * bytes, uint32_t len)
 {
-   if (level >= -1)
+
+   printf ("  Bytes: ");
+   for (uint32_t i = 0; i < len; i++)
    {
-      printf ("  Bytes: ");
-      for (uint32_t i = 0; i < len; i++)
-      {
-         printf ("%02X ", bytes[i]);
-      }
-      printf ("\n");
+      printf ("%02X ", bytes[i]);
    }
+   printf ("\n");
 }
