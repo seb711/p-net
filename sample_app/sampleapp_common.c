@@ -794,7 +794,7 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
       PNET_SLOT_DAP_IDENT,
       PNET_SUBSLOT_DAP_INTERFACE_1_IDENT,
       PNET_MOD_DAP_IDENT,
-      PNET_SUBMOD_DAP_INTERFACE_1_IDENT,
+      0x00000002,
       &cfg_dap_data);
 
    app_exp_submodule_ind (
@@ -803,7 +803,7 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
       APP_GSDML_API,
       PNET_SLOT_DAP_IDENT,
       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_1_IDENT,
-      PNET_MOD_DAP_IDENT,
+      0x00000003,
       PNET_SUBMOD_DAP_INTERFACE_1_PORT_1_IDENT,
       &cfg_dap_data);
 
