@@ -22,7 +22,7 @@
     </DeviceFunction>
     <ApplicationProcess>
       <DeviceAccessPointList>
-        <DeviceAccessPointItem ID="DIM 1" FixedInSlots="0" PhysicalSlots="0..2" MinDeviceInterval="32" ModuleIdentNumber="0x00000001" DNS_CompatibleName="krc4" ImplementationType="SOFTWARE" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" AddressAssignment="DCP;LOCAL" NameOfStationNotTransferable="true" PNIO_Version="V2.33" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2 4" PROFIenergyASE_Supported="false">
+        <DeviceAccessPointItem ID="DIM 1" FixedInSlots="0" PhysicalSlots="0..2" MinDeviceInterval="32" ModuleIdentNumber="0x00000300" DNS_CompatibleName="krc4" ImplementationType="SOFTWARE" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" AddressAssignment="DCP;LOCAL" NameOfStationNotTransferable="true" PNIO_Version="V2.33" CheckDeviceID_Allowed="true" MultipleWriteSupported="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2 4" PROFIenergyASE_Supported="false">
           <ModuleInfo>
             <Name TextId="KRC4-ProfiNet_4.1" />
             <InfoText TextId="InfoTextId1" />
