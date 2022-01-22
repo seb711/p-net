@@ -31,13 +31,13 @@ static const app_gsdml_module_t dap_1 = {
    .submodules = {
       PNET_SUBMOD_DAP_IDENT,
       PNET_SUBMOD_DAP_INTERFACE_1_PORT_1_IDENT,
-      PNET_SUBMOD_DAP_INTERFACE_1_PORT_2_IDENT,
+      // PNET_SUBMOD_DAP_INTERFACE_1_PORT_2_IDENT,
    }};
 
 static const app_gsdml_module_t module_digital_in_out_safe = {
    .id = APP_GSDML_MOD_ID_1_IN_OUT,
    .name = "8 safe digital in- and outputs",
-   .submodules = {0x00000001}};
+   .submodules = {APP_GSDML_MOD_ID_1_IN_OUT}};
 
 // static const app_gsdml_module_t module_digital_out = {
 //    .id = APP_GSDML_MOD_ID_0_8_DIGITAL_OUT,
@@ -47,7 +47,7 @@ static const app_gsdml_module_t module_digital_in_out_safe = {
 static const app_gsdml_module_t module_digital_in_out = {
    .id = APP_GSDML_MOD_ID_8_IN_OUT,
    .name = "256 digital in- and outputs",
-   .submodules = {0x00000001}};
+   .submodules = {APP_GSDML_MOD_ID_8_IN_OUT}};
 
 static const app_gsdml_submodule_t dap_indentity_1 = {
    .name = "DAP Identity 1",
@@ -76,14 +76,14 @@ static const app_gsdml_submodule_t dap_port_1 = {
    .outsize = 0,
    .parameters = {0}};
 
-static const app_gsdml_submodule_t dap_port_2 = {
-   .name = "DAP Port 2",
-   .api = APP_GSDML_API,
-   .id = PNET_SUBMOD_DAP_INTERFACE_1_PORT_2_IDENT,
-   .data_dir = PNET_DIR_NO_IO,
-   .insize = 0,
-   .outsize = 0,
-   .parameters = {0}};
+// static const app_gsdml_submodule_t dap_port_2 = {
+//    .name = "DAP Port 2",
+//    .api = APP_GSDML_API,
+//    .id = PNET_SUBMOD_DAP_INTERFACE_1_PORT_2_IDENT,
+//    .data_dir = PNET_DIR_NO_IO,
+//    .insize = 0,
+//    .outsize = 0,
+//    .parameters = {0}};
 
 // static const app_gsdml_submodule_t dap_port_3 = {
 //    .name = "DAP Port 3",
@@ -141,7 +141,7 @@ static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
    &dap_indentity_1,
    &dap_interface_1,
    &dap_port_1,
-   &dap_port_2,
+   // &dap_port_2,
 
    &submod_digital_inout_safe,
    &submod_digital_inout,
