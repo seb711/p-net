@@ -36,8 +36,8 @@ static const app_gsdml_module_t dap_1 = {
 
 static const app_gsdml_module_t module_digital_in_out_safe = {
    .id = APP_GSDML_MOD_ID_1_IN_OUT,
-   .name = "64 safe digital in- and outputs",
-   .submodules = {0x0001008F}};
+   .name = "8 safe digital in- and outputs",
+   .submodules = {0x00000001}};
 
 // static const app_gsdml_module_t module_digital_out = {
 //    .id = APP_GSDML_MOD_ID_0_8_DIGITAL_OUT,
@@ -47,7 +47,7 @@ static const app_gsdml_module_t module_digital_in_out_safe = {
 static const app_gsdml_module_t module_digital_in_out = {
    .id = APP_GSDML_MOD_ID_8_IN_OUT,
    .name = "256 digital in- and outputs",
-   .submodules = {0x00011000}};
+   .submodules = {0x00000001}};
 
 static const app_gsdml_submodule_t dap_indentity_1 = {
    .name = "DAP Identity 1",
@@ -104,7 +104,7 @@ static const app_gsdml_submodule_t dap_port_2 = {
 //    .parameters = {0}};
 
 static const app_gsdml_submodule_t submod_digital_inout_safe = {
-   .id = 0x0001008F,
+   .id = 0x00000001,
    .name = "Digital Input/Output Safe",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
@@ -122,7 +122,7 @@ static const app_gsdml_submodule_t submod_digital_inout_safe = {
 //    .parameters = {0}};
 
 static const app_gsdml_submodule_t submod_digital_inout = {
-   .id = 0x00011000,
+   .id = 0x00000001,
    .name = "Digital Input/Output",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
