@@ -104,7 +104,7 @@ static const app_gsdml_submodule_t dap_port_2 = {
 //    .parameters = {0}};
 
 static const app_gsdml_submodule_t submod_digital_inout_safe = {
-   .id = 0x00000001,
+   .id = 0x0000008f,
    .name = "Digital Input/Output Safe",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
@@ -122,7 +122,7 @@ static const app_gsdml_submodule_t submod_digital_inout_safe = {
 //    .parameters = {0}};
 
 static const app_gsdml_submodule_t submod_digital_inout = {
-   .id = 0x00000001,
+   .id = 0x00001000,
    .name = "Digital Input/Output",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
@@ -131,8 +131,10 @@ static const app_gsdml_submodule_t submod_digital_inout = {
    .parameters = {0}};
 
 /* List of supported modules */
-static const app_gsdml_module_t * app_gsdml_modules[] =
-   {&dap_1, &module_digital_in_out_safe, &module_digital_in_out};
+static const app_gsdml_module_t * app_gsdml_modules[] = {
+   &dap_1,
+   &module_digital_in_out_safe,
+   &module_digital_in_out};
 
 /* List of supported submodules */
 static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
@@ -140,7 +142,7 @@ static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
    &dap_interface_1,
    &dap_port_1,
    &dap_port_2,
-   
+
    &submod_digital_inout_safe,
    &submod_digital_inout,
 };
@@ -183,7 +185,10 @@ const app_gsdml_submodule_t * app_gsdml_get_submodule_cfg (uint32_t id)
    {
       if (app_gsdml_submodules[i]->id == id)
       {
-         printf("app_gsdml_get_submodule_cfg %u %s\n", id, app_gsdml_submodules[i]->name);
+         printf (
+            "app_gsdml_get_submodule_cfg %u %s\n",
+            id,
+            app_gsdml_submodules[i]->name);
          return app_gsdml_submodules[i];
       }
    }
