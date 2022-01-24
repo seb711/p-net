@@ -794,7 +794,7 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
       PNET_SLOT_DAP_IDENT,
       PNET_SUBSLOT_DAP_INTERFACE_1_IDENT,
       PNET_MOD_DAP_IDENT,
-      0x00000002,
+      0x00000002, // submodule_number and submodule_ident_number are two different things
       &cfg_dap_data);
 
    app_exp_submodule_ind (
@@ -804,47 +804,8 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
       PNET_SLOT_DAP_IDENT,
       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_1_IDENT,
       PNET_MOD_DAP_IDENT,
-      0x00000003,
+      0x00000003, // submodule_number and submodule_ident_number are two different things
       &cfg_dap_data);
-
-   // if (number_of_ports >= 2)
-   // {
-   //    app_exp_submodule_ind (
-   //       app->net,
-   //       app,
-   //       APP_GSDML_API,
-   //       PNET_SLOT_DAP_IDENT,
-   //       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_2_IDENT,
-   //       PNET_MOD_DAP_IDENT,
-   //       PNET_SUBMOD_DAP_INTERFACE_1_PORT_2_IDENT,
-   //       &cfg_dap_data);
-   // }
-
-   // if (number_of_ports >= 3)
-   // {
-   //    app_exp_submodule_ind (
-   //       app->net,
-   //       app,
-   //       APP_GSDML_API,
-   //       PNET_SLOT_DAP_IDENT,
-   //       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_3_IDENT,
-   //       PNET_MOD_DAP_IDENT,
-   //       PNET_SUBMOD_DAP_INTERFACE_1_PORT_3_IDENT,
-   //       &cfg_dap_data);
-   // }
-
-   // if (number_of_ports >= 4)
-   // {
-   //    app_exp_submodule_ind (
-   //       app->net,
-   //       app,
-   //       APP_GSDML_API,
-   //       PNET_SLOT_DAP_IDENT,
-   //       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_4_IDENT,
-   //       PNET_MOD_DAP_IDENT,
-   //       PNET_SUBMOD_DAP_INTERFACE_1_PORT_4_IDENT,
-   //       &cfg_dap_data);
-   // }
 }
 
 /**
@@ -1490,6 +1451,9 @@ void app_loop_forever (void * arg)
    // app_set_led (APP_DATA_LED_ID, false);
    app_plug_dap (app, app->pnet_cfg->num_physical_ports);
    APP_LOG_INFO ("Waiting for PLC connect request\n\n");
+
+      pnet_set_redundancy_state (app->net, false)
+
 
    /* Main event loop */
    for (;;)
