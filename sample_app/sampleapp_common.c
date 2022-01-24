@@ -150,6 +150,8 @@ int app_start (app_data_t * app, app_run_in_separate_task_t task_config)
       return -1;
    }
 
+   pnet_set_redundancy_state (app->net, false);
+
    app->main_events = os_event_create();
    if (app->main_events == NULL)
    {
@@ -1454,10 +1456,8 @@ void app_loop_forever (void * arg)
    app_plug_dap (app, app->pnet_cfg->num_physical_ports);
    APP_LOG_INFO ("Waiting for PLC connect request\n\n");
 
-   pnet_set_redundancy_state (app->net, false);
-
-      /* Main event loop */
-      for (;;)
+   /* Main event loop */
+   for (;;)
    {
       os_event_wait (app->main_events, mask, &flags, OS_WAIT_FOREVER);
       if (flags & APP_EVENT_READY_FOR_DATA)
