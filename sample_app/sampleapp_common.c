@@ -1005,7 +1005,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
          app_data_set_output_data (
             subslot->submodule_id,
             outdata_buf,
-            outdata_length, 
+            outdata_length,
             app->counter_data);
       }
       else
@@ -1058,12 +1058,12 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
                 */
                if (p_subslot->data_cfg.insize > 0)
                {
-                  printf ("set prov state success\n");
                   indata = app_data_get_input_data (
                      p_subslot->submodule_id,
                      &indata_size,
                      &iops,
                      app->counter_data);
+                  printf ("set prov state success %u %u\n", indata, p_subslot->submodule_id);
                }
 
                ret = pnet_input_set_data_and_iops (
