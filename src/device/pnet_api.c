@@ -393,9 +393,7 @@ int pnet_set_redundancy_state (pnet_t * net, bool redundant)
       "API(%d): Application sets redundancy state to %s\n",
       __LINE__,
       redundant ? "true" : "false");
-
-   printf("APPLICATION SET NEW RED STATE \n\n\n\n");
-
+      
    for (ar_ix = 0; ar_ix < PNET_MAX_AR; ar_ix++)
    {
       p_ar = pf_ar_find_by_index (net, ar_ix);

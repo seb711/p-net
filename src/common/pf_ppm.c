@@ -549,10 +549,6 @@ int pf_ppm_set_data_and_iops (
             __LINE__,
             p_iocr->ppm.state,
             p_ar->arep);
-         printf("PPM(%d): Set data in wrong state: %u for AREP %u\n",
-            __LINE__,
-            p_iocr->ppm.state,
-            p_ar->arep);
          break;
       case PF_PPM_STATE_RUN:
          if (
@@ -593,25 +589,12 @@ int pf_ppm_set_data_and_iops (
                p_iodata->iops_length,
                slot_nbr,
                subslot_nbr);
-               printf("PPM(%d): Given data size %u and IOPS size %u, "
-               "but PLC expects sizes %u and %u for slot %u subslot 0x%04x\n",
-               __LINE__,
-               data_len,
-               iops_len,
-               p_iodata->data_length,
-               p_iodata->iops_length,
-               slot_nbr,
-               subslot_nbr);
          }
          break;
       default:
          LOG_ERROR (
             PF_PPM_LOG,
             "PPM(%d): Set data in wrong state: %u for AREP %u\n",
-            __LINE__,
-            p_iocr->ppm.state,
-            p_ar->arep);
-            printf("PPM(%d): Set data in wrong state: %u for AREP %u\n",
             __LINE__,
             p_iocr->ppm.state,
             p_ar->arep);

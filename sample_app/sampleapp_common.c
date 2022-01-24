@@ -150,6 +150,8 @@ int app_start (app_data_t * app, app_run_in_separate_task_t task_config)
       return -1;
    }
 
+   pnet_set_redundancy_state (app->net, true);
+
    app->main_events = os_event_create();
    if (app->main_events == NULL)
    {

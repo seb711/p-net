@@ -423,7 +423,7 @@ typedef enum pnet_control_command
  */
 typedef enum pnet_data_status_bits
 {
-   PNET_DATA_STATUS_BIT_STATE = 1,  /** 0 => BACKUP, 1 => PRIMARY */
+   PNET_DATA_STATUS_BIT_STATE = 0,  /** 0 => BACKUP, 1 => PRIMARY */
    PNET_DATA_STATUS_BIT_REDUNDANCY, /** Meaning depends on STATE bit */
    PNET_DATA_STATUS_BIT_DATA_VALID, /** 0 => INVALID, 1 => VALID */
    PNET_DATA_STATUS_BIT_RESERVED_1,
