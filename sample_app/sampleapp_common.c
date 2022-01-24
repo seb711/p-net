@@ -794,7 +794,8 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
       PNET_SLOT_DAP_IDENT,
       PNET_SUBSLOT_DAP_INTERFACE_1_IDENT,
       PNET_MOD_DAP_IDENT,
-      0x00000002, // submodule_number and submodule_ident_number are two different things
+      0x00000002, // submodule_number and submodule_ident_number are two
+                  // different things
       &cfg_dap_data);
 
    app_exp_submodule_ind (
@@ -804,7 +805,8 @@ static void app_plug_dap (app_data_t * app, uint16_t number_of_ports)
       PNET_SLOT_DAP_IDENT,
       PNET_SUBSLOT_DAP_INTERFACE_1_PORT_1_IDENT,
       PNET_MOD_DAP_IDENT,
-      0x00000003, // submodule_number and submodule_ident_number are two different things
+      0x00000003, // submodule_number and submodule_ident_number are two
+                  // different things
       &cfg_dap_data);
 }
 
@@ -1452,11 +1454,10 @@ void app_loop_forever (void * arg)
    app_plug_dap (app, app->pnet_cfg->num_physical_ports);
    APP_LOG_INFO ("Waiting for PLC connect request\n\n");
 
-      pnet_set_redundancy_state (app->net, false)
+   pnet_set_redundancy_state (app->net, false);
 
-
-   /* Main event loop */
-   for (;;)
+      /* Main event loop */
+      for (;;)
    {
       os_event_wait (app->main_events, mask, &flags, OS_WAIT_FOREVER);
       if (flags & APP_EVENT_READY_FOR_DATA)
