@@ -1063,7 +1063,6 @@ static int app_set_initial_data_and_ioxs (app_data_t * app)
                      &indata_size,
                      &iops,
                      app->counter_data);
-                  printf ("set prov state success %u %u\n", indata, p_subslot->submodule_id);
                }
 
                ret = pnet_input_set_data_and_iops (
