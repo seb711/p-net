@@ -614,7 +614,7 @@ int pf_ppm_set_data_and_iops (
             printf("PPM(%d): Set data in wrong state: %u for AREP %u\n",
             __LINE__,
             p_iocr->ppm.state,
-            p_ar->arep));
+            p_ar->arep);
          break;
       }
    }
