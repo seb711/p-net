@@ -79,16 +79,7 @@ uint8_t * app_data_get_input_data (
    //    return NULL;
    // }
 
-   if (
-      submodule_id != APP_GSDML_MOD_ID_1_IN_OUT &&
-      submodule_id != APP_GSDML_MOD_ID_2_IN_OUT &&
-      submodule_id != APP_GSDML_MOD_ID_3_IN_OUT)
-   {
-      /* Automated RT Tester scenario 2 - unsupported (sub)module */
-      *iops = PNET_IOXS_BAD;
-      return NULL;
-   }
-   else if (submodule_id == APP_GSDML_MOD_ID_1_IN_OUT)
+   if (submodule_id == APP_GSDML_MOD_ID_1_IN_OUT)
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_1;
       *iops = PNET_IOXS_GOOD;
@@ -104,7 +95,7 @@ uint8_t * app_data_get_input_data (
    }
    else if (submodule_id == APP_GSDML_MOD_ID_2_IN_OUT)
    {
-      *size = APP_GSDML_INPUT_DATA_SIZE_2;
+      *size = APP_GSDML_INPUT_DATA_SIZE_8;
       *iops = PNET_IOXS_GOOD;
       // printf ("Input n-data received!\n");
       // printf ("Count = %u!\n", counter);
@@ -113,7 +104,7 @@ uint8_t * app_data_get_input_data (
 
       return inputdata_8;
    }
-    else if (submodule_id == APP_GSDML_MOD_ID_3_IN_OUT)
+   else if (submodule_id == APP_GSDML_MOD_ID_3_IN_OUT)
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_16;
       *iops = PNET_IOXS_GOOD;
@@ -124,6 +115,9 @@ uint8_t * app_data_get_input_data (
 
       return inputdata_16;
    }
+   /* Automated RT Tester scenario 2 - unsupported (sub)module */
+   *iops = PNET_IOXS_BAD;
+   return NULL;
    /* Prepare input data
     * Lowest 7 bits: Counter    Most significant bit: Button
     */
@@ -169,7 +163,7 @@ int app_data_set_output_data (
          memcpy (outputdata_8, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
          printf ("old counter 8 = %u\n", counter);
-         printf ("\nnew counter 8 = %u\n", outputdata_n[0]);
+         printf ("\nnew counter 8 = %u\n", outputdata_8[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
@@ -180,7 +174,7 @@ int app_data_set_output_data (
          memcpy (outputdata_16, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
          printf ("old counter 16 = %u\n", counter);
-         printf ("\nnew counter 16 = %u\n", outputdata_n[0]);
+         printf ("\nnew counter 16 = %u\n", outputdata_16[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
