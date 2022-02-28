@@ -83,6 +83,7 @@ uint8_t * app_data_get_input_data (
    {
       *size = APP_GSDML_INPUT_DATA_SIZE_1;
       *iops = PNET_IOXS_GOOD;
+
       if ((counter % 10) > 5)
       {
          inputdata_1[0] |= 0x80;
@@ -152,8 +153,7 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_1, data, size);
          
-         printf ("old counter 1 = %u\n", counter);
-         printf ("new counter 1 = %u\n\n", outputdata_1[0]);
+         printf ("outputdata_1[0] = %u\n\n", outputdata_1[0]);
          return 0;
       }
       else if (
@@ -162,8 +162,9 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_4, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         printf ("old counter 4 = %u\n", counter);
-         printf ("new counter 4 = %u\n\n", outputdata_4[0]);
+         printf ("outputdata_4[0] = %u\n\n", outputdata_4[0]);
+         printf ("outputdata_4[3] = %u\n\n", outputdata_4[3]);
+
          // app_handle_data_led_state (false);
          return 0;
       }
@@ -173,8 +174,9 @@ int app_data_set_output_data (
       {
          memcpy (outputdata_8, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         printf ("old counter 8 = %u\n", counter);
-         printf ("new counter 8 = %u\n\n", outputdata_8[0]);
+         printf ("new outputdata_8[0] = %u\n\n", outputdata_8[0]);
+         printf ("new outputdata_8[7] = %u\n\n", outputdata_8[7]);
+
          // app_handle_data_led_state (false);
          return 0;
       }
