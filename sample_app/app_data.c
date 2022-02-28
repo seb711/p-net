@@ -163,7 +163,7 @@ int app_data_set_output_data (
          memcpy (outputdata_4, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
          printf ("old counter 4 = %u\n", counter);
-         printf ("\nnew counter 4 = %u\n", outputdata_8[0]);
+         printf ("\nnew counter 4 = %u\n", outputdata_4[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
@@ -174,7 +174,7 @@ int app_data_set_output_data (
          memcpy (outputdata_8, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
          printf ("old counter 8 = %u\n", counter);
-         printf ("\nnew counter 8 = %u\n", outputdata_16[0]);
+         printf ("\nnew counter 8 = %u\n", outputdata_8[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
