@@ -134,7 +134,7 @@ static const app_gsdml_module_t * app_gsdml_modules[] = {
    &dap_1,
    &module_digital_in_out_1,
    &module_digital_in_out_8,
-   module_digital_in_out_16};
+   &module_digital_in_out_16};
 
 /* List of supported submodules */
 static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
