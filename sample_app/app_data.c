@@ -38,11 +38,11 @@
 uint8_t inputdata_1[APP_GSDML_INPUT_DATA_SIZE_1] = {0};
 uint8_t outputdata_1[APP_GSDML_OUTPUT_DATA_SIZE_1] = {0};
 /* Process data */
+uint8_t inputdata_4[APP_GSDML_INPUT_DATA_SIZE_4] = {0};
+uint8_t outputdata_4[APP_GSDML_OUTPUT_DATA_SIZE_4] = {0};
+/* Process data */
 uint8_t inputdata_8[APP_GSDML_INPUT_DATA_SIZE_8] = {0};
 uint8_t outputdata_8[APP_GSDML_OUTPUT_DATA_SIZE_8] = {0};
-/* Process data */
-uint8_t inputdata_16[APP_GSDML_INPUT_DATA_SIZE_16] = {0};
-uint8_t outputdata_16[APP_GSDML_OUTPUT_DATA_SIZE_16] = {0};
 
 uint8_t counter = 0;
 
@@ -95,6 +95,17 @@ uint8_t * app_data_get_input_data (
    }
    else if (submodule_id == APP_GSDML_MOD_ID_2_IN_OUT)
    {
+      *size = APP_GSDML_INPUT_DATA_SIZE_4;
+      *iops = PNET_IOXS_GOOD;
+      // printf ("Input n-data received!\n");
+      // printf ("Count = %u!\n", counter);
+
+      inputdata_4[0] = counter;
+
+      return inputdata_4;
+   }
+   else if (submodule_id == APP_GSDML_MOD_ID_3_IN_OUT)
+   {
       *size = APP_GSDML_INPUT_DATA_SIZE_8;
       *iops = PNET_IOXS_GOOD;
       // printf ("Input n-data received!\n");
@@ -103,17 +114,6 @@ uint8_t * app_data_get_input_data (
       inputdata_8[0] = counter;
 
       return inputdata_8;
-   }
-   else if (submodule_id == APP_GSDML_MOD_ID_3_IN_OUT)
-   {
-      *size = APP_GSDML_INPUT_DATA_SIZE_16;
-      *iops = PNET_IOXS_GOOD;
-      // printf ("Input n-data received!\n");
-      // printf ("Count = %u!\n", counter);
-
-      inputdata_16[0] = counter;
-
-      return inputdata_16;
    }
    /* Automated RT Tester scenario 2 - unsupported (sub)module */
    *iops = PNET_IOXS_BAD;
@@ -158,23 +158,23 @@ int app_data_set_output_data (
       }
       else if (
          submodule_id == APP_GSDML_MOD_ID_2_IN_OUT &&
-         size == APP_GSDML_OUTPUT_DATA_SIZE_8)
+         size == APP_GSDML_OUTPUT_DATA_SIZE_4)
       {
-         memcpy (outputdata_8, data, size);
+         memcpy (outputdata_4, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         printf ("old counter 8 = %u\n", counter);
-         printf ("\nnew counter 8 = %u\n", outputdata_8[0]);
+         printf ("old counter 4 = %u\n", counter);
+         printf ("\nnew counter 4 = %u\n", outputdata_8[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
       else if (
          submodule_id == APP_GSDML_MOD_ID_3_IN_OUT &&
-         size == APP_GSDML_OUTPUT_DATA_SIZE_16)
+         size == APP_GSDML_OUTPUT_DATA_SIZE_8)
       {
-         memcpy (outputdata_16, data, size);
+         memcpy (outputdata_8, data, size);
          // led_state = (outputdata_n[0] & 0x80) > 0;
-         printf ("old counter 16 = %u\n", counter);
-         printf ("\nnew counter 16 = %u\n", outputdata_16[0]);
+         printf ("old counter 8 = %u\n", counter);
+         printf ("\nnew counter 8 = %u\n", outputdata_16[0]);
          // app_handle_data_led_state (false);
          return 0;
       }
@@ -185,8 +185,8 @@ int app_data_set_output_data (
 int app_data_set_default_outputs (void)
 {
    outputdata_1[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
+   outputdata_4[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
    outputdata_8[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
-   outputdata_16[0] = APP_DATA_DEFAULT_OUTPUT_DATA;
 
    // app_handle_data_led_state (false);
    return 0;

@@ -144,13 +144,13 @@ typedef struct
 #define APP_GSDML_OUTPUT_DATA_SIZE_1  1 /* bytes, for digital outputs data */
 #define APP_GSDM_ALARM_PAYLOAD_SIZE_1 1 /* bytes */
 
+#define APP_GSDML_INPUT_DATA_SIZE_4   4 /* bytes, for digital inputs data */
+#define APP_GSDML_OUTPUT_DATA_SIZE_4  4 /* bytes, for digital outputs data */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_4 1 /* bytes */
+
 #define APP_GSDML_INPUT_DATA_SIZE_8   8 /* bytes, for digital inputs data */
 #define APP_GSDML_OUTPUT_DATA_SIZE_8  8 /* bytes, for digital outputs data */
 #define APP_GSDM_ALARM_PAYLOAD_SIZE_8 1 /* bytes */
-
-#define APP_GSDML_INPUT_DATA_SIZE_16   16 /* bytes, for digital inputs data */
-#define APP_GSDML_OUTPUT_DATA_SIZE_16  16 /* bytes, for digital outputs data */
-#define APP_GSDM_ALARM_PAYLOAD_SIZE_16 1 /* bytes */
 
 #define APP_GSDML_INPUT_DATA_SIZE_N   32 /* bytes, for digital inputs data */
 #define APP_GSDML_OUTPUT_DATA_SIZE_N  32 /* bytes, for digital outputs data */

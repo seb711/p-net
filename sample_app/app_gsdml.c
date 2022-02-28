@@ -38,14 +38,14 @@ static const app_gsdml_module_t module_digital_in_out_1 = {
    .name = "8 digital in- and outputs",
    .submodules = {APP_GSDML_MOD_ID_1_IN_OUT, 0}};
 
-static const app_gsdml_module_t module_digital_in_out_8 = {
+static const app_gsdml_module_t module_digital_in_out_4 = {
    .id = APP_GSDML_MOD_ID_2_IN_OUT,
-   .name = "64 digital in- and outputs",
+   .name = "32 digital in- and outputs",
    .submodules = {APP_GSDML_MOD_ID_2_IN_OUT, 0}};
 
-static const app_gsdml_module_t module_digital_in_out_16 = {
+static const app_gsdml_module_t module_digital_in_out_8 = {
    .id = APP_GSDML_MOD_ID_3_IN_OUT,
-   .name = "128 digital in- and outputs",
+   .name = "64 digital in- and outputs",
    .submodules = {APP_GSDML_MOD_ID_3_IN_OUT, 0}};
 
 static const app_gsdml_submodule_t dap_indentity_1 = {
@@ -111,8 +111,17 @@ static const app_gsdml_submodule_t submod_digital_inout_1 = {
    .outsize = APP_GSDML_OUTPUT_DATA_SIZE_1,
    .parameters = {0}};
 
-static const app_gsdml_submodule_t submod_digital_inout_8 = {
+static const app_gsdml_submodule_t submod_digital_inout_4 = {
    .id = APP_GSDML_MOD_ID_2_IN_OUT,
+   .name = "Digital Input/Output 4 Byte",
+   .api = APP_GSDML_API,
+   .data_dir = PNET_DIR_IO,
+   .insize = APP_GSDML_INPUT_DATA_SIZE_4,
+   .outsize = APP_GSDML_OUTPUT_DATA_SIZE_4,
+   .parameters = {0}};
+
+static const app_gsdml_submodule_t submod_digital_inout_8 = {
+   .id = APP_GSDML_MOD_ID_3_IN_OUT,
    .name = "Digital Input/Output 8 Byte",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
@@ -120,21 +129,12 @@ static const app_gsdml_submodule_t submod_digital_inout_8 = {
    .outsize = APP_GSDML_OUTPUT_DATA_SIZE_8,
    .parameters = {0}};
 
-static const app_gsdml_submodule_t submod_digital_inout_16 = {
-   .id = APP_GSDML_MOD_ID_3_IN_OUT,
-   .name = "Digital Input/Output 16 Byte",
-   .api = APP_GSDML_API,
-   .data_dir = PNET_DIR_IO,
-   .insize = APP_GSDML_INPUT_DATA_SIZE_16,
-   .outsize = APP_GSDML_OUTPUT_DATA_SIZE_16,
-   .parameters = {0}};
-
 /* List of supported modules */
 static const app_gsdml_module_t * app_gsdml_modules[] = {
    &dap_1,
    &module_digital_in_out_1,
-   &module_digital_in_out_8,
-   &module_digital_in_out_16};
+   &module_digital_in_out_4,
+   &module_digital_in_out_8};
 
 /* List of supported submodules */
 static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
@@ -143,8 +143,8 @@ static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
    &dap_port_1,
 
    &submod_digital_inout_1,
+   &submod_digital_inout_4,
    &submod_digital_inout_8,
-   &submod_digital_inout_16,
 };
 
 const app_gsdml_module_t * app_gsdml_get_module_cfg (uint32_t id)
