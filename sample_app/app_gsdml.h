@@ -39,7 +39,7 @@ extern "C" {
 
 #define APP_GSDML_API 0
 
-#define APP_GSDML_DEFAULT_STATION_NAME "krc4"
+#define APP_GSDML_DEFAULT_STATION_NAME "mcps"
 
 /* GSDML tag: VendorID */
 #define APP_GSDML_VENDOR_ID 0x019B
@@ -59,7 +59,7 @@ extern "C" {
 /* GSDML tag: OrderNumber */
 #define APP_GSDML_ORDER_ID "0x300"
 /* GSDML tag: ModuleInfo / Name */
-#define APP_GSDML_PRODUCT_NAME "KRC4_ProfiNet_4_1"
+#define APP_GSDML_PRODUCT_NAME "MiniCPS_Device"
 
 /* GSDML tag: MinDeviceInterval */
 #define APP_GSDML_MIN_DEVICE_INTERVAL 32 /* 1ms */
@@ -73,9 +73,6 @@ extern "C" {
 #define APP_GSDML_LOGBOOK_ERROR_CODE_2 0x00       /* Manufacturer specific */
 #define APP_GSDML_LOGBOOK_ENTRY_DETAIL 0xFEE1DEAD /* Manufacturer specific */
 
-#define APP_GSDM_PARAMETER_1_IDX  123
-#define APP_GSDM_PARAMETER_2_IDX  124
-#define APP_GSDM_PARAMETER_LENGTH 4
 
 typedef struct cfg_module
 {
@@ -109,10 +106,10 @@ typedef struct
 // #define APP_GSDML_SUBMOD_ID_DIGITAL_OUT     0x00000131
 // #define APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT  0x00000132
 
-#define APP_GSDML_MOD_ID_1_IN_OUT           0x0000008F
-#define APP_GSDML_MOD_ID_2_IN_OUT           0x00000080
-#define APP_GSDML_MOD_ID_3_IN_OUT           0x00000100
-#define APP_GSDML_MOD_ID_4_IN_OUT           0x00000200
+#define APP_GSDML_MOD_ID_1_IN_OUT           0x00000080
+#define APP_GSDML_MOD_ID_2_IN_OUT           0x00000100
+#define APP_GSDML_MOD_ID_3_IN_OUT           0x00000200
+#define APP_GSDML_MOD_ID_4_IN_OUT           0x0000008f
 #define APP_GSDML_MOD_ID_5_IN_OUT           0x00000400
 #define APP_GSDML_MOD_ID_6_IN_OUT           0x00000800
 #define APP_GSDML_MOD_ID_7_IN_OUT           0x00000C00
@@ -126,22 +123,34 @@ typedef struct
 #define APP_GSDML_MOD_ID_15_IN_OUT          0x00006000
 #define APP_GSDML_MOD_ID_16_IN_OUT          0x00007F00
 
-#define APP_GSDML_SUBMOD_ID_1_IN_OUT           0x0000008F
-#define APP_GSDML_SUBMOD_ID_2_IN_OUT           0x00010080
-#define APP_GSDML_SUBMOD_ID_3_IN_OUT           0x00010100
-#define APP_GSDML_SUBMOD_ID_4_IN_OUT           0x00010200
-#define APP_GSDML_SUBMOD_ID_5_IN_OUT           0x00010400
-#define APP_GSDML_SUBMOD_ID_6_IN_OUT           0x00010800
-#define APP_GSDML_SUBMOD_ID_7_IN_OUT           0x00010C00
+#define APP_GSDML_SUBMOD_ID_1_IN_OUT           0x00000080
+#define APP_GSDML_SUBMOD_ID_2_IN_OUT           0x00000100
+#define APP_GSDML_SUBMOD_ID_3_IN_OUT           0x00000200
+#define APP_GSDML_SUBMOD_ID_4_IN_OUT           0x0000008f
+#define APP_GSDML_SUBMOD_ID_5_IN_OUT           0x00000400
+#define APP_GSDML_SUBMOD_ID_6_IN_OUT           0x00000800
+#define APP_GSDML_SUBMOD_ID_7_IN_OUT           0x00000C00
 #define APP_GSDML_SUBMOD_ID_8_IN_OUT           0x00001000
-#define APP_GSDML_SUBMOD_ID_9_IN_OUT           0x00011400
-#define APP_GSDML_SUBMOD_ID_10_IN_OUT          0x00011800
-#define APP_GSDML_SUBMOD_ID_11_IN_OUT          0x00011C00
-#define APP_GSDML_SUBMOD_ID_12_IN_OUT          0x00012000
-#define APP_GSDML_SUBMOD_ID_13_IN_OUT          0x00013000
-#define APP_GSDML_SUBMOD_ID_14_IN_OUT          0x00014000
-#define APP_GSDML_SUBMOD_ID_15_IN_OUT          0x00016000
-#define APP_GSDML_SUBMOD_ID_16_IN_OUT          0x00017F00
+#define APP_GSDML_SUBMOD_ID_9_IN_OUT           0x00001400
+#define APP_GSDML_SUBMOD_ID_10_IN_OUT          0x00001800
+#define APP_GSDML_SUBMOD_ID_11_IN_OUT          0x00001C00
+#define APP_GSDML_SUBMOD_ID_12_IN_OUT          0x00002000
+#define APP_GSDML_SUBMOD_ID_13_IN_OUT          0x00003000
+#define APP_GSDML_SUBMOD_ID_14_IN_OUT          0x00004000
+#define APP_GSDML_SUBMOD_ID_15_IN_OUT          0x00006000
+#define APP_GSDML_SUBMOD_ID_16_IN_OUT          0x00007F00
+
+#define APP_GSDML_INPUT_DATA_SIZE_1   1 /* bytes, for digital inputs data */
+#define APP_GSDML_OUTPUT_DATA_SIZE_1  1 /* bytes, for digital outputs data */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_1 1 /* bytes */
+
+#define APP_GSDML_INPUT_DATA_SIZE_8   8 /* bytes, for digital inputs data */
+#define APP_GSDML_OUTPUT_DATA_SIZE_8  8 /* bytes, for digital outputs data */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_8 1 /* bytes */
+
+#define APP_GSDML_INPUT_DATA_SIZE_16   16 /* bytes, for digital inputs data */
+#define APP_GSDML_OUTPUT_DATA_SIZE_16  16 /* bytes, for digital outputs data */
+#define APP_GSDM_ALARM_PAYLOAD_SIZE_16 1 /* bytes */
 
 #define APP_GSDML_INPUT_DATA_SIZE_N   32 /* bytes, for digital inputs data */
 #define APP_GSDML_OUTPUT_DATA_SIZE_N  32 /* bytes, for digital outputs data */
