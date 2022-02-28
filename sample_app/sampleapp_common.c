@@ -960,7 +960,7 @@ static void app_cyclic_data_callback (app_subslot_t * subslot, void * tag)
 
       if (outdata_length != subslot->data_cfg.outsize)
       {
-         APP_LOG_ERROR ("Wrong outputdata length: %u\n", outdata_length);
+         APP_LOG_ERROR ("Wrong outputdata length: %u %u\n", outdata_length, subslot->data_cfg.outsize);
          app_set_outputs_default_value();
       }
       else if (outdata_iops == PNET_IOXS_GOOD)

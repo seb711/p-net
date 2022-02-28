@@ -126,7 +126,7 @@ static const app_gsdml_submodule_t submod_digital_inout_16 = {
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
    .insize = APP_GSDML_INPUT_DATA_SIZE_16,
-   .outsize = APP_GSDML_OUTPUT_DATA_SIZE_N,
+   .outsize = APP_GSDML_OUTPUT_DATA_SIZE_16,
    .parameters = {0}};
 
 /* List of supported modules */
